@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navLogin"
+            android:icon="@drawable/ic_menu_person_black"
+            android:title="Login" />
+        <item
+            android:id="@+id/navRegistroUsuario"
+            android:icon="@drawable/ic_menu_person_add_black"
+            android:title="Registro Usuario" />
+        <item
+            android:id="@+id/navEditarUsuario"
+            android:icon="@drawable/ic_menu_assignment_ind_black"
+            android:title="Editar datos" />
+        <item
+            android:id="@+id/navCrearDeclaracion"
+            android:icon="@drawable/ic_menu_create_new_folder_black"
+            android:title="Crear declaración" />
+        <item
+            android:id="@+id/navCarros"
+            android:icon="@drawable/ic_menu_directions_car_black"
+            android:title="Mis autos" />
+    </group>
+
+
+    <item android:title="Mas opciones">
+        <menu>
+            <item
+                android:id="@+id/navCompartir"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Compartir" />
+
+            <item
+                android:id="@+id/navManual"
+                android:icon="@drawable/ic_menu_library_books_black"
+                android:title="Manual de Uso" />
+
+            <item
+                android:id="@+id/navCambiarClave"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Cambiar clave" />
+
+            <item
+                android:id="@+id/navSalir"
+                android:icon="@drawable/ic_menu_reply_black"
+                android:title="Salir" />
+
+        </menu>
+    </item>
+</menu>

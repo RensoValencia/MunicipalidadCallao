@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="pe.edu.upc.municipalidadcallao.DetalleCarro"
+    tools:showIn="@layout/activity_detalle_carro">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:layout_margin="1dp"
+        app:cardCornerRadius="4dp"
+        android:id="@+id/personCardView"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detalle de mi auto"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#FF0000"
+                android:layout_gravity="center"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/carro01"
+                    android:id="@+id/pictureImageView"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            android:textColor="#0000FF"
+                            android:text="Placa: "/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/placa1"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:id="@+id/tvPlaca"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            android:textColor="#0000FF"
+                            android:text="Marca: "/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/marca1"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:id="@+id/tvMarca"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            android:textColor="#0000FF"
+                            android:text="Modelo: "/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/modelo1"
+                            android:textStyle="bold"
+                            android:id="@+id/tvModelo"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            android:textColor="#0000FF"
+                            android:text="Categoría: "/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cat1"
+                            android:textStyle="bold"
+                            android:id="@+id/tvCategoria"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            android:textColor="#0000FF"
+                            android:text="Año: "/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/year1"
+                            android:textStyle="bold"
+                            android:id="@+id/bioTextView"/>
+
+                    </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/btnListadoDeclaracion"
+                    android:drawableLeft="@drawable/ic_menu_library_books_black"
+                    android:text="Listado de declaraciones"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/btnEstadoCuenta"
+                    android:drawableLeft="@drawable/ic_menu_chrome_reader_mode_black"
+                    android:text="Estado de cuenta"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/btnRegresar"
+                    android:drawableLeft="@drawable/ic_menu_reply_black"
+                    android:text="Regresar"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

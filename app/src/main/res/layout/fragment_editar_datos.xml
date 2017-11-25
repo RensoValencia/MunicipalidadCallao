@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.edu.upc.municipalidadcallao.EditarDatosFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar datos"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#FF0000"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="Nombre:"/>
+
+            <EditText
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="Apellido paterno:"/>
+
+            <EditText
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="Apellido materno:"/>
+
+            <Spinner
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:id="@+id/spDistrito">
+            </Spinner>
+
+            <EditText
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="Dirección:"/>
+
+            <EditText
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="Teléfono:"/>
+
+            <Button
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="#FFF"
+                android:background="@drawable/buttonstyleselector"
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:text="Editar"
+                android:layout_height="60dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

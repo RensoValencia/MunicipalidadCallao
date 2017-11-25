@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.edu.upc.municipalidadcallao.CambiarClaveFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="100dp">
+
+
+            <EditText
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:inputType="textPassword"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="Clave antigua:"/>
+
+            <EditText
+                android:textSize="24dp"
+                android:inputType="textPassword"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="Repetir clave:"/>
+
+            <EditText
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:inputType="textPassword"
+                android:layout_height="60dp"
+                android:hint="Nueva clave:"/>
+
+            <Button
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="#FFF"
+                android:background="@drawable/buttonstyleselector"
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:text="Cambiar clave"
+                android:layout_height="60dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
