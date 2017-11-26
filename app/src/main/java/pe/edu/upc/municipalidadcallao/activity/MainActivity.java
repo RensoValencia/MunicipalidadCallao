@@ -18,13 +18,10 @@ import pe.edu.upc.municipalidadcallao.fragment.CambiarClaveFragment;
 import pe.edu.upc.municipalidadcallao.fragment.DeclaracionFragment;
 import pe.edu.upc.municipalidadcallao.fragment.EditarDatosFragment;
 import pe.edu.upc.municipalidadcallao.fragment.ListadoCarrosFragment;
-import pe.edu.upc.municipalidadcallao.fragment.LoginFragment;
 import pe.edu.upc.municipalidadcallao.fragment.ManualUsuarioFragment;
-import pe.edu.upc.municipalidadcallao.fragment.RegistroUsuarioFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, LoginFragment.OnFragmentInteractionListener,
-        RegistroUsuarioFragment.OnFragmentInteractionListener, EditarDatosFragment.OnFragmentInteractionListener,
+        implements NavigationView.OnNavigationItemSelectedListener, EditarDatosFragment.OnFragmentInteractionListener,
         ListadoCarrosFragment.OnFragmentInteractionListener, ManualUsuarioFragment.OnFragmentInteractionListener,
         CambiarClaveFragment.OnFragmentInteractionListener, DeclaracionFragment.OnFragmentInteractionListener{
 
@@ -86,13 +83,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         Boolean fragmentSeleccionado = false;
 
-        if (id == R.id.navLogin) {
-            fragment = new LoginFragment();
-            fragmentSeleccionado = true;
-        } else if (id == R.id.navRegistroUsuario) {
-            fragment = new RegistroUsuarioFragment();
-            fragmentSeleccionado = true;
-        } else if (id == R.id.navEditarUsuario) {
+        if (id == R.id.navEditarUsuario) {
             fragment = new EditarDatosFragment();
             fragmentSeleccionado = true;
         } else if (id == R.id.navCrearDeclaracion) {
@@ -101,9 +92,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.navCarros) {
             fragment = new ListadoCarrosFragment();
             fragmentSeleccionado = true;
-        /*} else if (id == R.id.navDeclaraciones) {
-            fragment = new ListadoDeclaracionesFragment();
-            fragmentSeleccionado = true;*/
         } else if (id == R.id.navCompartir) {
 
         } else if(id == R.id.navManual) {

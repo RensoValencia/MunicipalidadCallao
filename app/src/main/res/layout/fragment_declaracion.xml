@@ -26,39 +26,47 @@
                 />
 
             <EditText
+                android:id="@+id/btnDni"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Dni:"/>
 
             <EditText
+                android:id="@+id/txtPlaca"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Placa:"/>
 
             <EditText
+                android:id="@+id/txtPorcentaje"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Porcentaje:"/>
 
             <EditText
+                android:id="@+id/txtImpuesto"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Impuesto:"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
+                    android:gravity="center"
                     android:paddingTop="10dp">
-
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
@@ -75,44 +83,47 @@
                 </LinearLayout>
 
             <EditText
+                android:id="@+id/txtAfectoDesde"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Afecto desde:"/>
 
             <EditText
+                android:id="@+id/txtAnioAdquisicion"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Año adquisición:"/>
 
             <EditText
+                android:id="@+id/txtMoneda"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Moneda:"/>
 
             <EditText
+                android:id="@+id/txtValorAdquisicion"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Valor adquisición:"/>
 
-            <EditText
-                android:textSize="24dp"
-                android:textStyle="bold"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:hint="Moneda:"/>
 
             <EditText
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
                 android:hint="Tipo de cambio:"/>
 
@@ -121,6 +132,7 @@
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Valor real de adquisición:"/>
 
             <EditText
@@ -128,16 +140,29 @@
                 android:textStyle="bold"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
                 android:hint="Valor del Mef:"/>
 
             <Button
+                android:id="@+id/btnDeclarar"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:textColor="#FFF"
                 android:drawableLeft="@drawable/ic_save_black"
                 android:layout_marginTop="50dp"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:text="Declarar"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="60dp" />
+
+            <Button
+                android:id="@+id/btnRegresar"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/ic_menu_reply_black"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:text="Regresar"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp" />
 
         </LinearLayout>

@@ -2,14 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/navLogin"
-            android:icon="@drawable/ic_menu_person_black"
-            android:title="Login" />
-        <item
-            android:id="@+id/navRegistroUsuario"
-            android:icon="@drawable/ic_menu_person_add_black"
-            android:title="Registro Usuario" />
+
         <item
             android:id="@+id/navEditarUsuario"
             android:icon="@drawable/ic_menu_assignment_ind_black"

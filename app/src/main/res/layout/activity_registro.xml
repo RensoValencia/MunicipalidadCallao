@@ -1,9 +1,10 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pe.edu.upc.municipalidadcallao.fragment.RegistroUsuarioFragment">
+    tools:context="pe.edu.upc.municipalidadcallao.activity.RegistroActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,89 +20,117 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Registro de Usuario"
+                android:layout_gravity="center_horizontal"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:textColor="#FF0000"
-                android:layout_gravity="center"
-                />
+                android:textColor="#FF0000" />
 
             <EditText
+                android:id="@+id/txtDni"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="60dp"
+                android:hint="DNI:"/>
+
+            <EditText
+                android:id="@+id/txtNombre"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
                 android:hint="Nombre:"/>
 
             <EditText
+                android:id="@+id/txtApePaterno"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
                 android:hint="Apellido paterno:"/>
 
             <EditText
+                android:id="@+id/txtApeMaterno"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
                 android:hint="Apellido materno:"/>
-
-            <EditText
-                android:textSize="24dp"
-                android:textStyle="bold"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:hint="DNI:"/>
 
             <Spinner
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
                 android:id="@+id/spDistrito">
             </Spinner>
 
             <EditText
+                android:id="@+id/txtDireccion"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
                 android:hint="Dirección:"/>
 
             <EditText
+                android:id="@+id/txtCorreo"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
                 android:hint="Correo:"/>
 
             <EditText
+                android:id="@+id/txtTelefono"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
                 android:hint="Teléfono:"/>
 
             <EditText
+                android:id="@+id/txtClave"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
                 android:inputType="textPassword"
                 android:hint="Clave:"/>
 
             <Button
+                android:id="@+id/btnRegistrarse"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:textColor="#FFF"
-                android:background="@drawable/buttonstyleselector"
-                android:layout_marginTop="50dp"
-                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
                 android:text="Registrarse"
                 android:drawableLeft="@drawable/ic_save_black"
+                android:layout_height="60dp" />
+
+            <Button
+                android:id="@+id/btnSalir"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/ic_menu_reply_black"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:text="Salir"
                 android:layout_height="60dp" />
 
         </LinearLayout>
 
     </ScrollView>
-</FrameLayout>
+
+</RelativeLayout>

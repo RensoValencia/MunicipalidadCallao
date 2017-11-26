@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pe.edu.upc.municipalidadcallao.LoginActivity">
+    tools:context="pe.edu.upc.municipalidadcallao.activity.LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                 android:id="@+id/btnSalir"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:drawableLeft="@drawable/ic_menu_person_add_black"
+                android:drawableLeft="@drawable/ic_menu_reply_black"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_width="300dp"

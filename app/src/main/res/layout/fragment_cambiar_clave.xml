@@ -43,9 +43,9 @@
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:textColor="#FFF"
-                android:background="@drawable/buttonstyleselector"
+                android:background="@drawable/ic_menu_person_black"
                 android:layout_marginTop="50dp"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:text="Cambiar clave"
                 android:layout_height="60dp" />
 
