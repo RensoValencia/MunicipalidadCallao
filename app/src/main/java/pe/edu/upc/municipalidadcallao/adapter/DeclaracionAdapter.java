@@ -1,4 +1,4 @@
-package pe.edu.upc.municipalidadcallao;
+package pe.edu.upc.municipalidadcallao.adapter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import pe.edu.upc.municipalidadcallao.activity.DetalleDeclaracionActivity;
+import pe.edu.upc.municipalidadcallao.R;
+import pe.edu.upc.municipalidadcallao.pojos.Declaracion;
 
 /**
  * Created by RENSO on 12/11/2017.

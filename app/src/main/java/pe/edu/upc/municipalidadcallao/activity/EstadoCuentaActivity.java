@@ -1,4 +1,4 @@
-package pe.edu.upc.municipalidadcallao;
+package pe.edu.upc.municipalidadcallao.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+
+import pe.edu.upc.municipalidadcallao.R;
 
 public class EstadoCuentaActivity extends AppCompatActivity {
 

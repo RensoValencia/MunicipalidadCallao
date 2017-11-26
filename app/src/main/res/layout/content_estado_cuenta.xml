@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="pe.edu.upc.municipalidadcallao.EstadoCuentaActivity"
+    tools:context="pe.edu.upc.municipalidadcallao.activity.EstadoCuentaActivity"
     tools:showIn="@layout/activity_estado_cuenta">
 
     <ScrollView

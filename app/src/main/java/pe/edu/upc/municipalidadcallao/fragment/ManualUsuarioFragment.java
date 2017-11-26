@@ -1,4 +1,4 @@
-package pe.edu.upc.municipalidadcallao;
+package pe.edu.upc.municipalidadcallao.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,19 +7,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+
+import pe.edu.upc.municipalidadcallao.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link EditarDatosFragment.OnFragmentInteractionListener} interface
+ * {@link ManualUsuarioFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link EditarDatosFragment#newInstance} factory method to
+ * Use the {@link ManualUsuarioFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EditarDatosFragment extends Fragment {
+public class ManualUsuarioFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +31,7 @@ public class EditarDatosFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public EditarDatosFragment() {
+    public ManualUsuarioFragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +41,13 @@ public class EditarDatosFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment EditarDatosFragment.
+     *               //hola soy ivonne
+     *               //hola soy renso
+     * @return A new instance of fragment ManualUsuarioFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static EditarDatosFragment newInstance(String param1, String param2) {
-        EditarDatosFragment fragment = new EditarDatosFragment();
+    public static ManualUsuarioFragment newInstance(String param1, String param2) {
+        ManualUsuarioFragment fragment = new ManualUsuarioFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,15 +68,7 @@ public class EditarDatosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_editar_datos,
-                container, false);
-
-        Spinner distritos = (Spinner) rootView.findViewById(R.id.spDistrito);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                getContext(), R.array.distritos, android.R.layout.simple_spinner_item);
-
-        distritos.setAdapter(adapter);
-        return rootView;
+        return inflater.inflate(R.layout.fragment_manual_usuario, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

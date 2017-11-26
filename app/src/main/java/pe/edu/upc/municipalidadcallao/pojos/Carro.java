@@ -1,4 +1,4 @@
-package pe.edu.upc.municipalidadcallao;
+package pe.edu.upc.municipalidadcallao.pojos;
 
 /**
  * Created by RENSO on 12/11/2017.

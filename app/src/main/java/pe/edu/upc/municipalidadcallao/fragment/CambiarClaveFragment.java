@@ -1,26 +1,25 @@
-package pe.edu.upc.municipalidadcallao;
+package pe.edu.upc.municipalidadcallao.fragment;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+
+import pe.edu.upc.municipalidadcallao.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link RegistroUsuarioFragment.OnFragmentInteractionListener} interface
+ * {@link CambiarClaveFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link RegistroUsuarioFragment#newInstance} factory method to
+ * Use the {@link CambiarClaveFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegistroUsuarioFragment extends Fragment {
+public class CambiarClaveFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,7 +31,7 @@ public class RegistroUsuarioFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public RegistroUsuarioFragment() {
+    public CambiarClaveFragment() {
         // Required empty public constructor
     }
 
@@ -42,11 +41,11 @@ public class RegistroUsuarioFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RegistroUsuarioFragment.
+     * @return A new instance of fragment CambiarClaveFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static RegistroUsuarioFragment newInstance(String param1, String param2) {
-        RegistroUsuarioFragment fragment = new RegistroUsuarioFragment();
+    public static CambiarClaveFragment newInstance(String param1, String param2) {
+        CambiarClaveFragment fragment = new CambiarClaveFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -57,7 +56,6 @@ public class RegistroUsuarioFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -67,16 +65,8 @@ public class RegistroUsuarioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View rootView = inflater.inflate(R.layout.fragment_registro_usuario,
-                container, false);
-
-        Spinner distritos = (Spinner) rootView.findViewById(R.id.spDistrito);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                getContext(), R.array.distritos, android.R.layout.simple_spinner_item);
-
-        distritos.setAdapter(adapter);
-        return rootView;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_cambiar_clave, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -1,9 +1,7 @@
-package pe.edu.upc.municipalidadcallao;
+package pe.edu.upc.municipalidadcallao.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,7 +9,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class DetalleCarro extends AppCompatActivity {
+import pe.edu.upc.municipalidadcallao.R;
+import pe.edu.upc.municipalidadcallao.pojos.Carro;
+import pe.edu.upc.municipalidadcallao.service.CarroService;
+
+public class DetalleCarroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class DetalleCarro extends AppCompatActivity {
         btnListadoDeclaracion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent iconIntent = new Intent(DetalleCarro.this, ListadoDeclaracionesActivity.class);
+                Intent iconIntent = new Intent(DetalleCarroActivity.this, ListadoDeclaracionesActivity.class);
                 startActivity(iconIntent);
             }
         });
@@ -58,7 +60,7 @@ public class DetalleCarro extends AppCompatActivity {
         btnEstadoCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent iconIntent = new Intent(DetalleCarro.this, EstadoCuentaActivity.class);
+                Intent iconIntent = new Intent(DetalleCarroActivity.this, EstadoCuentaActivity.class);
                 startActivity(iconIntent);
             }
         });

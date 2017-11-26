@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/contenedor"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="pe.edu.upc.municipalidadcallao.MainActivity"
+    tools:context="pe.edu.upc.municipalidadcallao.activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
 

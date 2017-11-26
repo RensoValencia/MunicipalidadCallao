@@ -1,4 +1,4 @@
-package pe.edu.upc.municipalidadcallao;
+package pe.edu.upc.municipalidadcallao.adapter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import pe.edu.upc.municipalidadcallao.activity.DetalleCarroActivity;
+import pe.edu.upc.municipalidadcallao.R;
+import pe.edu.upc.municipalidadcallao.pojos.Carro;
 
 /**
  * Created by RENSO on 12/11/2017.
@@ -40,7 +44,7 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.ViewHolder> 
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("currentPosition", position);
-                Intent iconIntent = new Intent(view.getContext(), DetalleCarro.class);
+                Intent iconIntent = new Intent(view.getContext(), DetalleCarroActivity.class);
                 iconIntent.putExtras(bundle);
                 view.getContext().startActivity(iconIntent);
             }

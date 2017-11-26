@@ -1,4 +1,4 @@
-package pe.edu.upc.municipalidadcallao;
+package pe.edu.upc.municipalidadcallao.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,16 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import pe.edu.upc.municipalidadcallao.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CambiarClaveFragment.OnFragmentInteractionListener} interface
+ * {@link LoginFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link CambiarClaveFragment#newInstance} factory method to
+ * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CambiarClaveFragment extends Fragment {
+public class LoginFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +31,7 @@ public class CambiarClaveFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public CambiarClaveFragment() {
+    public LoginFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +41,11 @@ public class CambiarClaveFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CambiarClaveFragment.
+     * @return A new instance of fragment LoginFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CambiarClaveFragment newInstance(String param1, String param2) {
-        CambiarClaveFragment fragment = new CambiarClaveFragment();
+    public static LoginFragment newInstance(String param1, String param2) {
+        LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +66,7 @@ public class CambiarClaveFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cambiar_clave, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

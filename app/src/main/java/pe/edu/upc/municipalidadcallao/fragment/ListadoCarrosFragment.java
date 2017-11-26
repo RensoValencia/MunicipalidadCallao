@@ -1,23 +1,32 @@
-package pe.edu.upc.municipalidadcallao;
+package pe.edu.upc.municipalidadcallao.fragment;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
+
+import pe.edu.upc.municipalidadcallao.adapter.CarroAdapter;
+import pe.edu.upc.municipalidadcallao.service.CarroService;
+import pe.edu.upc.municipalidadcallao.R;
+import pe.edu.upc.municipalidadcallao.pojos.Carro;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ManualUsuarioFragment.OnFragmentInteractionListener} interface
+ * {@link ListadoCarrosFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ManualUsuarioFragment#newInstance} factory method to
+ * Use the {@link ListadoCarrosFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ManualUsuarioFragment extends Fragment {
+public class ListadoCarrosFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +38,7 @@ public class ManualUsuarioFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public ManualUsuarioFragment() {
+    public ListadoCarrosFragment() {
         // Required empty public constructor
     }
 
@@ -39,13 +48,11 @@ public class ManualUsuarioFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     *               //hola soy ivonne
-     *               //hola soy renso
-     * @return A new instance of fragment ManualUsuarioFragment.
+     * @return A new instance of fragment ListadoCarrosFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ManualUsuarioFragment newInstance(String param1, String param2) {
-        ManualUsuarioFragment fragment = new ManualUsuarioFragment();
+    public static ListadoCarrosFragment newInstance(String param1, String param2) {
+        ListadoCarrosFragment fragment = new ListadoCarrosFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,8 +72,27 @@ public class ManualUsuarioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.fragment_listado_carros,
+                container, false);
+
+        List<Carro> people;
+        RecyclerView.LayoutManager peopleLayoutManager;
+        RecyclerView peopleRecyclerView;
+        CarroAdapter peopleAdapter;
+
+        CarroService service = new CarroService(getContext());
+        people = service.getCarros();
+        peopleLayoutManager = new LinearLayoutManager(getContext());
+        peopleAdapter = new CarroAdapter();
+        peopleAdapter.setPeople(people);
+        peopleRecyclerView = (RecyclerView) rootView.findViewById(R.id.peopleRecyclerView);
+        System.out.println("aaaa:" + peopleRecyclerView);
+        peopleRecyclerView.setLayoutManager(peopleLayoutManager);
+        peopleRecyclerView.setAdapter(peopleAdapter);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_manual_usuario, container, false);
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
