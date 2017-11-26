@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.edu.upc.municipalidadcallao.LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="100dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/login" />
+
+            <EditText
+                android:id="@+id/txtUsuario"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="60dp"
+                android:hint="Usuario:"/>
+
+            <EditText
+                android:id="@+id/txtClave"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
+                android:inputType="textPassword"
+                android:layout_height="60dp"
+                android:hint="Clave:"/>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:drawableLeft="@drawable/ic_menu_person_black"
+                android:layout_marginTop="50dp"
+                android:layout_width="300dp"
+                android:text="Login"
+                android:layout_height="60dp" />
+
+            <Button
+                android:id="@+id/btnRegistrarse"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/ic_menu_person_add_black"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:text="Registrarse"
+                android:layout_height="60dp" />
+
+            <Button
+                android:id="@+id/btnSalir"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/ic_menu_person_add_black"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:text="Salir"
+                android:layout_height="60dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
