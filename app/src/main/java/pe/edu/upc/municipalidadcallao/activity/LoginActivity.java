@@ -1,24 +1,44 @@
 package pe.edu.upc.municipalidadcallao.activity;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import pe.edu.upc.municipalidadcallao.R;
+import pe.edu.upc.municipalidadcallao.utils.CustomDialog;
 
 public class LoginActivity extends AppCompatActivity {
 
+    EditText txtUsuario;
+    EditText txtClave;
     Button btnLogin;
     Button btnRegistrarse;
     Button btnSalir;
+
+    private FirebaseAuth mAuth;
+    String TAG = "Logs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mAuth = FirebaseAuth.getInstance();
+
+        txtUsuario = (EditText) findViewById(R.id.txtUsuario);
+        txtClave = (EditText) findViewById(R.id.txtClave);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
         btnSalir = (Button) findViewById(R.id.btnSalir);
@@ -26,8 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent iconIntent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(iconIntent);
+                validarAcceso();
             }
         });
 
@@ -45,5 +64,56 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void validarAcceso() {
+
+        if(txtUsuario.getText().toString().isEmpty()) {
+            CustomDialog.ShowCustomAlert("Ingrese su usuario", this);
+            txtUsuario.requestFocus();
+            return;
+        }
+
+        if(txtClave.getText().toString().isEmpty()) {
+            CustomDialog.ShowCustomAlert("Ingrese su clave", this);
+            txtClave.requestFocus();
+            return;
+        }
+
+        String email = txtUsuario.getText().toString();
+        String password = txtClave.getText().toString();
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+                    }
+                });
+    }
+
+    private void updateUI(FirebaseUser user) {
+        if(user != null) {
+            Intent iconIntent = new Intent(this, MainActivity.class);
+            this.startActivity(iconIntent);
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
     }
 }

@@ -1,5 +1,6 @@
 package pe.edu.upc.municipalidadcallao.activity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.fragment.CambiarClaveFragment;
@@ -101,7 +104,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new CambiarClaveFragment();
             fragmentSeleccionado = true;
         } else if(id == R.id.navSalir) {
-            finish();
+            FirebaseAuth.getInstance().signOut();
+            cerrarSesion();
         }
 
         if(fragmentSeleccionado) {
@@ -112,6 +116,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void cerrarSesion() {
+        Intent iconIntent = new Intent(this, LoginActivity.class);
+        this.startActivity(iconIntent);
     }
 
     @Override
