@@ -18,13 +18,13 @@ public class Vehiculo {
     private int anioFabricacion;
     private int anioAdquicion;
     private Date fechaRegistroPublico;
-    private String moneda;
-    private String valorAdquicion;
-    private String tipoCambio;
+    private Character moneda;
+    private long valorAdquicion;
+    private long tipoCambio;
     private long valorRealVehiculo;
     private String provincia;
 
-    public Vehiculo(String numeroDocumento, String placa, String porcentaje, String marca, String modelo, String categoria, String claseVehiculo, int anioFabricacion, int anioAdquicion, Date fechaRegistroPublico, String moneda, String valorAdquicion, String tipoCambio, long valorRealVehiculo, String provincia) {
+    public Vehiculo(String numeroDocumento, String placa, String porcentaje, String marca, String modelo, String categoria, String claseVehiculo, int anioFabricacion, int anioAdquicion, Date fechaRegistroPublico, Character moneda, long valorAdquicion, long tipoCambio, long valorRealVehiculo, String provincia) {
         this.numeroDocumento = numeroDocumento;
         this.placa = placa;
         this.porcentaje = porcentaje;
@@ -122,27 +122,27 @@ public class Vehiculo {
         this.fechaRegistroPublico = fechaRegistroPublico;
     }
 
-    public String getMoneda() {
+    public Character getMoneda() {
         return moneda;
     }
 
-    public void setMoneda(String moneda) {
+    public void setMoneda(Character moneda) {
         this.moneda = moneda;
     }
 
-    public String getValorAdquicion() {
+    public long getValorAdquicion() {
         return valorAdquicion;
     }
 
-    public void setValorAdquicion(String valorAdquicion) {
+    public void setValorAdquicion(long valorAdquicion) {
         this.valorAdquicion = valorAdquicion;
     }
 
-    public String getTipoCambio() {
+    public long getTipoCambio() {
         return tipoCambio;
     }
 
-    public void setTipoCambio(String tipoCambio) {
+    public void setTipoCambio(long tipoCambio) {
         this.tipoCambio = tipoCambio;
     }
 
