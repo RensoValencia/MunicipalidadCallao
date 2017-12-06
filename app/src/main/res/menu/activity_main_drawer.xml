@@ -6,39 +6,39 @@
         <item
             android:id="@+id/navEditarUsuario"
             android:icon="@drawable/ic_menu_assignment_ind_black"
-            android:title="Editar datos" />
+            android:title="@string/app_edit_data" />
         <item
             android:id="@+id/navCrearDeclaracion"
             android:icon="@drawable/ic_menu_create_new_folder_black"
-            android:title="Crear declaración" />
+            android:title="@string/app_create_dec" />
         <item
             android:id="@+id/navCarros"
             android:icon="@drawable/ic_menu_directions_car_black"
-            android:title="Mis autos" />
+            android:title="@string/app_my_car" />
     </group>
 
 
-    <item android:title="Mas opciones">
+    <item android:title="@string/app_more_option">
         <menu>
             <item
                 android:id="@+id/navCompartir"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Compartir" />
+                android:title="@string/app_share" />
 
             <item
                 android:id="@+id/navManual"
                 android:icon="@drawable/ic_menu_library_books_black"
-                android:title="Manual de Uso" />
+                android:title="@string/app_manual" />
 
             <item
                 android:id="@+id/navCambiarClave"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="Cambiar clave" />
+                android:title="@string/app_change_password" />
 
             <item
                 android:id="@+id/navSalir"
                 android:icon="@drawable/ic_menu_reply_black"
-                android:title="Salir" />
+                android:title="@string/app_exit" />
 
         </menu>
     </item>

@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.utils.CustomDialog;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     EditText txtUsuario;
     EditText txtClave;
@@ -43,27 +43,9 @@ public class LoginActivity extends AppCompatActivity {
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
         btnSalir = (Button) findViewById(R.id.btnSalir);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                validarAcceso();
-            }
-        });
-
-        btnRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent iconIntent = new Intent(LoginActivity.this, RegistroActivity.class);
-                startActivity(iconIntent);
-            }
-        });
-
-        btnSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        btnLogin.setOnClickListener(this);
+        btnRegistrarse.setOnClickListener(this);
+        btnSalir.setOnClickListener(this);
     }
 
     private void validarAcceso() {
@@ -115,5 +97,22 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.btnLogin:
+                validarAcceso();
+                break;
+            case R.id.btnRegistrarse:
+                Intent iconIntent = new Intent(LoginActivity.this, RegistroActivity.class);
+                startActivity(iconIntent);
+                break;
+            case R.id.btnSalir:
+                finish();
+                break;
+        }
     }
 }

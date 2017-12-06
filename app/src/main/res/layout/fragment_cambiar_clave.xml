@@ -11,45 +11,55 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="100dp">
+            android:paddingTop="30dp">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/munilogin" />
 
             <EditText
+                android:id="@+id/txtClaveAntigua"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:inputType="textPassword"
                 android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
-                android:hint="Clave antigua:"/>
+                android:hint="@string/app_btn_clave_antigua"/>
 
             <EditText
+                android:id="@+id/txtRepetirClave"
                 android:textSize="24dp"
                 android:inputType="textPassword"
                 android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
-                android:hint="Repetir clave:"/>
+                android:hint="@string/app_btn_repeat_clave"/>
 
             <EditText
+                android:id="@+id/txtNuevaClave"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
                 android:layout_width="300dp"
                 android:inputType="textPassword"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
-                android:hint="Nueva clave:"/>
+                android:hint="@string/app_btn_new_password"/>
 
             <Button
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:textColor="#FFF"
-                android:background="@drawable/ic_menu_person_black"
+                android:drawableLeft="@drawable/ic_menu_person_black"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
                 android:layout_width="300dp"
-                android:text="Cambiar clave"
+                android:text="@string/app_change_password"
                 android:layout_height="60dp" />
 
         </LinearLayout>
     </ScrollView>
-
 </FrameLayout>

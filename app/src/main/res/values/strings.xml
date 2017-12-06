@@ -1,5 +1,65 @@
 <resources>
-    <string name="app_name">MunicipalidadCallao</string>
+    <string name="app_name">Municipalidad del Callao</string>
+    <string name="app_email">municipality.callao@gob.pe</string>
+
+    <!-- menu principal -->
+    <string name="app_edit_data">Editar datos</string>
+    <string name="app_create_dec">Crear declaración</string>
+    <string name="app_my_car">Mis autos</string>
+    <string name="app_more_option">Mas opciones</string>
+    <string name="app_share">Compartir</string>
+    <string name="app_manual">Manual de Uso</string>
+    <string name="app_change_password">Cambiar clave</string>
+    <string name="app_exit">Salir</string>
+    <string name="title_activity_detalle_carro">Detalle de Vehiculo</string>
+    <string name="title_activity_listado_declaraciones">Listado de Declaraciones</string>
+    <string name="title_activity_detalle_declaracion">Detalle de Declaracion</string>
+    <string name="title_activity_estado_cuenta">Estado Cuenta</string>
+
+    <!-- login -->
+    <string name="app_txt_usuario">Usuario</string>
+    <string name="app_txt_clave">Clave</string>
+    <string name="app_btn_login">Iniciar sesión</string>
+    <string name="app_btn_regitrarse">Registrarse</string>
+    <string name="app_btn_exit">Salir</string>
+    <!-- registro usuario -->
+    <string name="app_reg_txt_usuario">Registro de Usuario</string>
+    <string name="app_reg_documento">DNI</string>
+    <string name="app_reg_nombre">Nombre</string>
+    <string name="app_reg_ape_paterno">Apellido paterno</string>
+    <string name="app_reg_ape_materno">Apellido materno</string>
+    <string name="app_reg_distrito">Distrito</string>
+    <string name="app_reg_direccion">Direccion</string>
+    <string name="app_reg_correo">Correo</string>
+    <string name="app_reg_telefono">Telefono</string>
+    <string name="app_reg_clave">Clave</string>
+    <!-- Editar datos -->
+    <string name="app_btn_editar">Editar</string>
+    <string name="app_btn_regresar">Regresar</string>
+    <!-- Reset password -->
+    <string name="app_btn_new_password">Nueva clave</string>
+    <string name="app_btn_clave_antigua">Clave antigua</string>
+    <string name="app_btn_repeat_clave">Repetir clave</string>
+    <!-- Declaracion jurada -->
+    <string name="app_title_declaracion">Declaracion jurada</string>
+    <string name="app_declaracion_dni">DNI</string>
+    <string name="app_declaracion_placa">Placa</string>
+    <string name="app_declaracion_porcentaje">Porcentaje</string>
+    <string name="app_declaracion_impuesto">Impuesto</string>
+    <string name="app_declaracion_fecha">Fecha declaración</string>
+    <string name="app_declaracion_afecto_desde">Afecto desde</string>
+    <string name="app_declaracion_anio_adquicion">Año adquisición</string>
+    <string name="app_declaracion_moneda">Moneda</string>
+    <string name="app_declaracion_valor_adquisicion">Valor adquisición</string>
+    <string name="app_declaracion_tipo_cambio">Tipo cambio</string>
+    <string name="app_declaracion_val_real_adq">Valor real de adquisición</string>
+    <string name="app_declaracion_val_mef">Valor del mef</string>
+    <string name="app_declaracion_btn">Declarar</string>
+
+
+
+
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
@@ -55,8 +115,4 @@
     <string name="tipoCambio1">25.52</string>
     <string name="valorRealAdquisicion1">25.52</string>
     <string name="valorMef1">23.20</string>
-    <string name="title_activity_detalle_carro">Detalle de Vehiculo</string>
-    <string name="title_activity_listado_declaraciones">Listado de Declaraciones</string>
-    <string name="title_activity_detalle_declaracion">Detalle de Declaracion</string>
-    <string name="title_activity_estado_cuenta">Estado Cuenta</string>
 </resources>

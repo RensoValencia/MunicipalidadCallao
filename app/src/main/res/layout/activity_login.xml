@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="pe.edu.upc.municipalidadcallao.activity.LoginActivity">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,12 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="100dp">
+            android:paddingTop="30dp">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/login" />
+                android:src="@drawable/munilogin" />
 
             <EditText
                 android:id="@+id/txtUsuario"
@@ -29,7 +28,7 @@
                 android:layout_width="300dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="60dp"
-                android:hint="Usuario:"/>
+                android:hint="@string/app_txt_usuario"/>
 
             <EditText
                 android:id="@+id/txtClave"
@@ -40,7 +39,7 @@
                 android:layout_gravity="center_horizontal"
                 android:inputType="textPassword"
                 android:layout_height="60dp"
-                android:hint="Clave:"/>
+                android:hint="@string/app_txt_clave"/>
 
             <Button
                 android:id="@+id/btnLogin"
@@ -50,7 +49,7 @@
                 android:drawableLeft="@drawable/ic_menu_person_black"
                 android:layout_marginTop="50dp"
                 android:layout_width="300dp"
-                android:text="Login"
+                android:text="@string/app_btn_login"
                 android:layout_height="60dp" />
 
             <Button
@@ -61,7 +60,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_width="300dp"
-                android:text="Registrarse"
+                android:text="@string/app_btn_regitrarse"
                 android:layout_height="60dp" />
 
             <Button
@@ -72,7 +71,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_width="300dp"
-                android:text="Salir"
+                android:text="@string/app_btn_exit"
                 android:layout_height="60dp" />
         </LinearLayout>
     </ScrollView>
