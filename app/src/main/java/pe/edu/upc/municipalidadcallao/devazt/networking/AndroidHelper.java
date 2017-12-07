@@ -13,5 +13,4 @@ public class AndroidHelper {
             StrictMode.setThreadPolicy(policy);
         }
     }
-
 }

@@ -11,5 +11,4 @@ public interface OnHttpRequestComplete {
          * @param status Instancia de la clase Response
          */
         public void onComplete(Response status);
-
 }

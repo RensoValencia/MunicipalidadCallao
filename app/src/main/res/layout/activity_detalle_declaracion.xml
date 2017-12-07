@@ -52,10 +52,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mi declaración"
+                        android:text="@string/app_title_mi_declaracion"
                         android:textSize="30dp"
                         android:textStyle="bold"
-                        android:textColor="#FF0000"
+                        android:textColor="@color/colorRojo"
                         android:layout_gravity="center"
                         />
 
@@ -82,8 +82,8 @@
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
                                 android:textSize="15dp"
-                                android:textColor="#0000FF"
-                                android:text="Carro: "/>
+                                android:textColor="@color/colorAzul"
+                                android:text="@string/app_txt_carro"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                                 android:textStyle="bold"
                                 android:textSize="15dp"
                                 android:textColor="#0000FF"
-                                android:text="Usuario: "/>
+                                android:text="@string/app_txt_usuario"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -130,7 +130,7 @@
                                 android:textStyle="bold"
                                 android:textSize="15dp"
                                 android:textColor="#0000FF"
-                                android:text="Porcentaje: "/>
+                                android:text="@string/app_declaracion_porcentaje"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -154,7 +154,7 @@
                                 android:textStyle="bold"
                                 android:textSize="15dp"
                                 android:textColor="#0000FF"
-                                android:text="Base imponible: "/>
+                                android:text="@string/app_txt_base_imponible"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -176,8 +176,8 @@
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
                                 android:textSize="15dp"
-                                android:textColor="#0000FF"
-                                android:text="Impuesto: "/>
+                                android:textColor="@color/colorAzul"
+                                android:text="@string/app_declaracion_impuesto"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -185,7 +185,6 @@
                                 android:text="@string/impuesto1"
                                 android:id="@+id/tvImpuesto"/>
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -198,8 +197,8 @@
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
                                 android:textSize="15dp"
-                                android:textColor="#0000FF"
-                                android:text="Fecha declaración: "/>
+                                android:textColor="@color/colorAzul"
+                                android:text="@string/app_declaracion_fecha"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -219,8 +218,8 @@
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
                                 android:textSize="15dp"
-                                android:textColor="#0000FF"
-                                android:text="Afecto desde: "/>
+                                android:textColor="@color/colorAzul"
+                                android:text="@string/app_declaracion_afecto_desde"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -236,13 +235,10 @@
                         android:layout_height="60dp"
                         android:id="@+id/btnRegresar"
                         android:drawableLeft="@drawable/ic_menu_reply_black"
-                        android:text="Regresar"/>
+                        android:text="@string/app_btn_regresar"/>
 
                 </LinearLayout>
             </ScrollView>
-
         </android.support.v7.widget.CardView>
-
     </RelativeLayout>
-
 </android.support.design.widget.CoordinatorLayout>

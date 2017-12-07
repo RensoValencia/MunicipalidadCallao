@@ -87,7 +87,6 @@ public class ListadoCarrosFragment extends Fragment {
         peopleAdapter = new CarroAdapter();
         peopleAdapter.setPeople(people);
         peopleRecyclerView = (RecyclerView) rootView.findViewById(R.id.peopleRecyclerView);
-        System.out.println("aaaa:" + peopleRecyclerView);
         peopleRecyclerView.setLayoutManager(peopleLayoutManager);
         peopleRecyclerView.setAdapter(peopleAdapter);
 

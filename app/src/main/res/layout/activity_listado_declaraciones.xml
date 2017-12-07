@@ -36,7 +36,6 @@
             android:id="@+id/declaracionRecyclerView"
             tools:layout_editor_absoluteY="8dp"
             tools:layout_editor_absoluteX="8dp" />
-
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -54,7 +54,7 @@
                     android:text="Estado de cuenta"
                     android:textSize="30dp"
                     android:textStyle="bold"
-                    android:textColor="#FF0000"
+                    android:textColor="@color/colorRojo"
                     android:layout_gravity="center"
                     />
 
@@ -67,11 +67,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/colorAzul"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:text="Carro: "/>
+                        android:text="@string/app_txt_carro"/>
 
                     <TextView
+                        android:id="@+id/tvCarro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
@@ -87,13 +89,15 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:textColor="@color/colorAzul"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:text="Deuda: "/>
+                        android:text="@string/app_txt_deuda"/>
 
                     <TextView
+                        android:id="@+id/tvDeuda"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
@@ -109,11 +113,12 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:textColor="@color/colorAzul"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:text="Fecha de pago: "/>
+                        android:text="@string/app_txt_fecha_pago"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -134,10 +139,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
+                        android:textColor="@color/colorAzul"
                         android:textStyle="bold"
-                        android:text="Interes: "/>
+                        android:text="@string/app_txt_interes"/>
 
                     <TextView
+                        android:id="@+id/tvInteres"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
@@ -153,11 +160,12 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:textColor="@color/colorAzul"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:text="Recibo: "/>
+                        android:text="@string/app_txt_recibo"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -165,7 +173,6 @@
                         android:textSize="20dp"
                         android:textStyle="bold"
                         android:text="18/11/2019"/>
-
                 </LinearLayout>
 
                 <Button
@@ -173,12 +180,9 @@
                     android:layout_height="60dp"
                     android:id="@+id/btnRegresar"
                     android:drawableLeft="@drawable/ic_menu_reply_black"
-                    android:text="Regresar"/>
+                    android:text="@string/app_btn_regresar"/>
 
             </LinearLayout>
-
         </ScrollView>
-
     </RelativeLayout>
-
 </android.support.design.widget.CoordinatorLayout>

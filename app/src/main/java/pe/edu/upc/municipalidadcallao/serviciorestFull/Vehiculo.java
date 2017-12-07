@@ -17,14 +17,14 @@ public class Vehiculo {
     private String claseVehiculo;
     private int anioFabricacion;
     private int anioAdquicion;
-    private Date fechaRegistroPublico;
+    private String fechaRegistroPublico;
     private Character moneda;
     private long valorAdquicion;
     private long tipoCambio;
     private long valorRealVehiculo;
     private String provincia;
 
-    public Vehiculo(String numeroDocumento, String placa, String porcentaje, String marca, String modelo, String categoria, String claseVehiculo, int anioFabricacion, int anioAdquicion, Date fechaRegistroPublico, Character moneda, long valorAdquicion, long tipoCambio, long valorRealVehiculo, String provincia) {
+    public Vehiculo(String numeroDocumento, String placa, String porcentaje, String marca, String modelo, String categoria, String claseVehiculo, int anioFabricacion, int anioAdquicion, String fechaRegistroPublico, Character moneda, long valorAdquicion, long tipoCambio, long valorRealVehiculo, String provincia) {
         this.numeroDocumento = numeroDocumento;
         this.placa = placa;
         this.porcentaje = porcentaje;
@@ -114,11 +114,11 @@ public class Vehiculo {
         this.anioAdquicion = anioAdquicion;
     }
 
-    public Date getFechaRegistroPublico() {
+    public String  getFechaRegistroPublico() {
         return fechaRegistroPublico;
     }
 
-    public void setFechaRegistroPublico(Date fechaRegistroPublico) {
+    public void setFechaRegistroPublico(String  fechaRegistroPublico) {
         this.fechaRegistroPublico = fechaRegistroPublico;
     }
 

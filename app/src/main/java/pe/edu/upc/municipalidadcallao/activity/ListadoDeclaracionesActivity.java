@@ -37,5 +37,4 @@ public class ListadoDeclaracionesActivity extends AppCompatActivity {
         peopleRecyclerView.setAdapter(peopleAdapter);
 
     }
-
 }

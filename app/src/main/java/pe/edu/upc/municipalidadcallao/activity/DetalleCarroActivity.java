@@ -13,7 +13,7 @@ import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.pojos.Carro;
 import pe.edu.upc.municipalidadcallao.service.CarroService;
 
-public class DetalleCarroActivity extends AppCompatActivity {
+public class DetalleCarroActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,28 +49,28 @@ public class DetalleCarroActivity extends AppCompatActivity {
         categoriaTextView.setText(carro.getCategoria());
         pictureImageView.setImageResource(carro.getImagen());
 
-        btnListadoDeclaracion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent iconIntent = new Intent(DetalleCarroActivity.this, ListadoDeclaracionesActivity.class);
-                startActivity(iconIntent);
-            }
-        });
-
-        btnEstadoCuenta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent iconIntent = new Intent(DetalleCarroActivity.this, EstadoCuentaActivity.class);
-                startActivity(iconIntent);
-            }
-        });
-
-        btnRegresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        btnListadoDeclaracion.setOnClickListener(this);
+        btnEstadoCuenta.setOnClickListener(this);
+        btnRegresar.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View view) {
+
+        Intent iconIntent = null;
+
+        switch (view.getId()) {
+            case R.id.btnListadoDeclaracion:
+                iconIntent = new Intent(DetalleCarroActivity.this, ListadoDeclaracionesActivity.class);
+                startActivity(iconIntent);
+                break;
+            case R.id.btnEstadoCuenta:
+                 iconIntent = new Intent(DetalleCarroActivity.this, EstadoCuentaActivity.class);
+                startActivity(iconIntent);
+                break;
+            case R.id.btnRegresar:
+                onBackPressed();
+                break;
+        }
+    }
 }

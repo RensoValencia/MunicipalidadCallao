@@ -52,7 +52,6 @@ public class DetalleDeclaracionActivity extends AppCompatActivity {
         usuarioTextView.setText(declaracion.getUsuario());
         porcentajeTextView.setText(declaracion.getPorcentaje());
         baseImponible.setText(declaracion.getBaseImponible());
-
         impuesto.setText(declaracion.getImpuesto());
         fechaDeclaracion.setText(declaracion.getFechaDeclaracion());
         afectoDesde.setText(declaracion.getAfectoDesde());
@@ -60,5 +59,4 @@ public class DetalleDeclaracionActivity extends AppCompatActivity {
         pictureImageView.setImageResource(declaracion.getImagen());
 
     }
-
 }

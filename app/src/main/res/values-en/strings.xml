@@ -53,6 +53,25 @@
     <string name="app_declaracion_val_real_adq">Valor real of acquisition</string>
     <string name="app_declaracion_val_mef">Value of mef</string>
     <string name="app_declaracion_btn">Declaration</string>
+    <!-- Detalle de carro -->
+    <string name="app_btn_estado_cuenta">Estado de cuenta</string>
+    <string name="app_btn_lst_declaracion">Listado de declaraciones</string>
+    <string name="app_txt_anio">Año</string>
+    <string name="app_txt_categoria">Categoría</string>
+    <string name="app_txt_modelo">Modelo</string>
+    <string name="app_txt_marca">Marca</string>
+    <string name="app_txt_placa">Placa</string>
+    <!-- Detalle de mi declaracion -->
+    <string name="app_title_mi_declaracion">Mi declaración</string>
+    <string name="app_txt_carro">Carro</string>
+    <string name="app_txt_base_imponible">Base imponible</string>
+    <!-- estado de cuenta -->
+    <string name="app_txt_recibo">Recibo</string>
+    <string name="app_txt_interes">Interes</string>
+    <string name="app_txt_fecha_pago">Fecha de pago</string>
+    <string name="app_txt_deuda">Deuda</string>
+    <!-- mensajes de validacion del registro usuario -->
+    <string name="app_msg_dni_vacio">Input your Document, Please</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

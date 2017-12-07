@@ -87,7 +87,7 @@
                                     android:textStyle="bold"
                                     android:textSize="15dp"
                                     android:textColor="#0000FF"
-                                    android:text="Placa: "/>
+                                    android:text="@string/app_txt_placa"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                                     android:textStyle="bold"
                                     android:textSize="15dp"
                                     android:textColor="#0000FF"
-                                    android:text="Marca: "/>
+                                    android:text="@string/app_txt_marca"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -119,7 +119,6 @@
                                     android:textStyle="bold"
                                     android:textSize="18dp"
                                     android:id="@+id/tvMarca"/>
-
                             </LinearLayout>
 
                             <LinearLayout
@@ -133,7 +132,7 @@
                                     android:textStyle="bold"
                                     android:textSize="15dp"
                                     android:textColor="#0000FF"
-                                    android:text="Modelo: "/>
+                                    android:text="@string/app_txt_modelo"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -155,7 +154,7 @@
                                     android:textStyle="bold"
                                     android:textSize="15dp"
                                     android:textColor="#0000FF"
-                                    android:text="Categoría: "/>
+                                    android:text="@string/app_txt_categoria"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -177,7 +176,7 @@
                                     android:textStyle="bold"
                                     android:textSize="15dp"
                                     android:textColor="#0000FF"
-                                    android:text="Año: "/>
+                                    android:text="@string/app_txt_anio"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -185,9 +184,7 @@
                                     android:text="@string/year1"
                                     android:textStyle="bold"
                                     android:id="@+id/bioTextView"/>
-
                             </LinearLayout>
-
                         </LinearLayout>
                     </LinearLayout>
 
@@ -196,28 +193,24 @@
                         android:layout_height="60dp"
                         android:id="@+id/btnListadoDeclaracion"
                         android:drawableLeft="@drawable/ic_menu_library_books_black"
-                        android:text="Listado de declaraciones"/>
+                        android:text="@string/app_btn_lst_declaracion"/>
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:id="@+id/btnEstadoCuenta"
                         android:drawableLeft="@drawable/ic_menu_chrome_reader_mode_black"
-                        android:text="Estado de cuenta"/>
+                        android:text="@string/app_btn_estado_cuenta"/>
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:id="@+id/btnRegresar"
                         android:drawableLeft="@drawable/ic_menu_reply_black"
-                        android:text="Regresar"/>
+                        android:text="@string/app_btn_regresar"/>
 
                 </LinearLayout>
-
             </ScrollView>
-
         </android.support.v7.widget.CardView>
-
     </RelativeLayout>
-
 </android.support.design.widget.CoordinatorLayout>

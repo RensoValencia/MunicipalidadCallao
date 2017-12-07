@@ -84,7 +84,8 @@ public class GetHttpSunarp extends AsyncTask<Void, Void, String> {
             int anioFabricacion = Integer.parseInt(jsonObject.getString("anioFabricacion"));
             int anioAdquicion = Integer.parseInt(jsonObject.getString("anioAdquicion"));
             DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
-            Date fechaRegistroPublico = format.parse(jsonObject.getString("fechaRegistroPublico"));
+            //String fechaRegistroPublico = format.parse(jsonObject.getString("fechaRegistroPublico"));
+            String fechaRegistroPublico = "";
             Character moneda = jsonObject.getString("moneda").charAt(0);
             Long valorAdquicion = Long.parseLong(jsonObject.getString("valorAdquicion"));
             Long tipoCambio = Long.parseLong(jsonObject.getString("tipoCambio"));
@@ -95,7 +96,7 @@ public class GetHttpSunarp extends AsyncTask<Void, Void, String> {
                     anioAdquicion, fechaRegistroPublico, moneda, valorAdquicion, tipoCambio, valorRealVehiculo, provincia);
             httpRecycler.setAdapter(this.httpAdapter);
 
-        } catch(JSONException | UnsupportedEncodingException |ParseException e) {
+        } catch(JSONException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }

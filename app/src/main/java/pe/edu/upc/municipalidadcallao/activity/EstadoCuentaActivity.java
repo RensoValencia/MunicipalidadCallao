@@ -10,7 +10,7 @@ import android.widget.Button;
 
 import pe.edu.upc.municipalidadcallao.R;
 
-public class EstadoCuentaActivity extends AppCompatActivity {
+public class EstadoCuentaActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button btnRegresar;
 
@@ -22,14 +22,18 @@ public class EstadoCuentaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         btnRegresar = (Button) findViewById(R.id.btnRegresar);
-
-        btnRegresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        btnRegresar.setOnClickListener(this);
 
     }
 
+    @Override
+    public void onClick(View view) {
+
+        switch(view.getId()) {
+            case R.id.btnRegresar:
+                onBackPressed();
+                break;
+
+        }
+    }
 }

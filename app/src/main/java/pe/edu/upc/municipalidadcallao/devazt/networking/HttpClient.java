@@ -75,5 +75,4 @@ public class HttpClient {
 
         return new Response(text,success,0);
     }
-
 }
