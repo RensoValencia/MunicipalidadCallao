@@ -16,7 +16,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pe.edu.upc.municipalidadcallao.R;
+import pe.edu.upc.municipalidadcallao.model.MunicipalidadDbHelper;
+import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.CuentaCte;
 import pe.edu.upc.municipalidadcallao.utils.CustomDialog;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -51,13 +56,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void validarAcceso() {
 
         if(txtUsuario.getText().toString().isEmpty()) {
-            CustomDialog.ShowCustomAlert("Ingrese su usuario", this);
+            CustomDialog.ShowCustomAlert("Ingrese su usuario ", this);
             txtUsuario.requestFocus();
             return;
         }
 
         if(txtClave.getText().toString().isEmpty()) {
-            CustomDialog.ShowCustomAlert("Ingrese su clave", this);
+            CustomDialog.ShowCustomAlert("Ingrese su clave ", this);
             txtClave.requestFocus();
             return;
         }
@@ -70,14 +75,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
+                            Log.d(TAG, "Se ha autenticado correctamente");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Ha Ocurrido un erro al autenticarse.",
+                            Toast.makeText(LoginActivity.this, "Ha Ocurrido un error en el servicio de autenticado.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }

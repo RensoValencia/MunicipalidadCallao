@@ -34,6 +34,7 @@ import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.devazt.networking.HttpClient;
 import pe.edu.upc.municipalidadcallao.devazt.networking.OnHttpRequestComplete;
 import pe.edu.upc.municipalidadcallao.devazt.networking.Response;
+import pe.edu.upc.municipalidadcallao.model.MunicipalidadDbHelper;
 import pe.edu.upc.municipalidadcallao.serviciorestFull.Persona;
 import pe.edu.upc.municipalidadcallao.utils.CustomDialog;
 import pe.edu.upc.municipalidadcallao.utils.ToaskCustom;
@@ -144,8 +145,8 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     private void registrarUsuario(View v) {
 
         if(txtDni.getText().toString().isEmpty()) {
-
-            CustomDialog.ShowCustomAlert(getString(R.string.app_msg_dni_vacio), this);
+            System.out.println("Este es un mensaje");
+            CustomDialog.ShowCustomAlert(getString(R.string.app_msg_dni_vacio) + " Renso", this);
             txtDni.requestFocus();
             return;
         }
