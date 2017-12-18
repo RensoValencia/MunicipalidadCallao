@@ -15,6 +15,7 @@ import java.util.List;
 import pe.edu.upc.municipalidadcallao.activity.DetalleCarroActivity;
 import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.pojos.Carro;
+import pe.edu.upc.municipalidadcallao.serviciorestFull.Vehiculo;
 
 /**
  * Created by RENSO on 12/11/2017.
@@ -22,9 +23,15 @@ import pe.edu.upc.municipalidadcallao.pojos.Carro;
 
 public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.ViewHolder> {
 
-    List<Carro> carros;
-    public void setPeople(List<Carro> carros) {
+
+
+    List<pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Vehiculo> carros;
+    public void setPeople(List<pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Vehiculo> carros) {
         this.carros = carros;
+    }
+
+    public CarroAdapter(List<pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Vehiculo> items) {
+        this.carros = items;
     }
 
     @Override
@@ -34,16 +41,23 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.ViewHolder> 
                         .inflate(R.layout.card_person, parent, false));
     }
     @Override
-    public void onBindViewHolder(CarroAdapter.ViewHolder holder, final int position) {
-        holder.pictureImageView.setImageResource(carros.get(position).getImagen());
-        holder.tvPlaca.setText(carros.get(position).getPlaca());
-        holder.tvMarca.setText(carros.get(position).getMarca());
-        holder.tvModelo.setText(carros.get(position).getModelo());
+    public void onBindViewHolder(CarroAdapter.ViewHolder holder, final int i) {
+        //holder.pictureImageView.setImageResource(carros.get(position).getImagen());
+        holder.tvPlaca.setText(carros.get(i).getPlaca());
+        holder.tvMarca.setText(carros.get(i).getMarca());
+        holder.tvModelo.setText(carros.get(i).getModelo());
         holder.personCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("currentPosition", position);
+                bundle.putString("placa", carros.get(i).getPlaca());
+                bundle.putString("marca", carros.get(i).getMarca());
+                bundle.putString("modelo", carros.get(i).getModelo());
+                bundle.putString("categoria", carros.get(i).getCategoria());
+                bundle.putString("anioFabricacion", carros.get(i).getAnioFabricacion());
+                bundle.putString("fecRegPub", carros.get(i).getFechaRegistroPublico());
+                bundle.putString("provincia", carros.get(i).getProvincia());
+
                 Intent iconIntent = new Intent(view.getContext(), DetalleCarroActivity.class);
                 iconIntent.putExtras(bundle);
                 view.getContext().startActivity(iconIntent);

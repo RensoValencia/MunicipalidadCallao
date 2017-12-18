@@ -22,8 +22,12 @@ import pe.edu.upc.municipalidadcallao.pojos.Declaracion;
 
 public class DeclaracionAdapter extends RecyclerView.Adapter<DeclaracionAdapter.ViewHolder>{
 
-    List<Declaracion> declaraciones;
-    public void setDeclaraciones(List<Declaracion> declaraciones) {
+    List<pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Declaracion> declaraciones;
+    public void setDeclaraciones(List<pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Declaracion> declaraciones) {
+        this.declaraciones = declaraciones;
+    }
+
+    public DeclaracionAdapter(List<pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Declaracion> declaraciones) {
         this.declaraciones = declaraciones;
     }
 
@@ -34,20 +38,28 @@ public class DeclaracionAdapter extends RecyclerView.Adapter<DeclaracionAdapter.
                         .inflate(R.layout.card_declaracion, parent, false));
     }
     @Override
-    public void onBindViewHolder(DeclaracionAdapter.ViewHolder holder, final int position) {
-        holder.pictureImageView.setImageResource(declaraciones.get(position).getImagen());
-        holder.tvCarro.setText(declaraciones.get(position).getCarro());
-        holder.tvUsuario.setText(declaraciones.get(position).getUsuario());
-        holder.tvPorcentaje.setText(declaraciones.get(position).getPorcentaje());
-        holder.tvBaseImponible.setText(declaraciones.get(position).getBaseImponible());
-        holder.tvImpuesto.setText(declaraciones.get(position).getImpuesto());
-        holder.tvFechaDeclaracion.setText(declaraciones.get(position).getFechaDeclaracion());
-        holder.tvAfectoDesde.setText(declaraciones.get(position).getAfectoDesde());
+    public void onBindViewHolder(DeclaracionAdapter.ViewHolder holder, final int i) {
+        //holder.pictureImageView.setImageResource(declaraciones.get(position).getImagen());
+       // holder.tvCarro.setText(declaraciones.get(position).getCarro());
+       // holder.tvUsuario.setText(declaraciones.get(position).getUsuario());
+        holder.tvPorcentaje.setText(declaraciones.get(i).getPorcentaje());
+        holder.tvBaseImponible.setText(declaraciones.get(i).getBaseImponible());
+        holder.tvImpuesto.setText(declaraciones.get(i).getImpuesto());
+        holder.tvFechaDeclaracion.setText(declaraciones.get(i).getFechaDeclaracion());
+        holder.tvAfectoDesde.setText(declaraciones.get(i).getAfectoDesde());
         holder.personCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("currentPosition", position);
+                bundle.putString("carro", "ABC123, MODELO, MARCA");
+                bundle.putString("usuario", "Renso Valencia Ventura");
+                bundle.putString("porcentaje", declaraciones.get(i).getPorcentaje());
+                bundle.putString("baseImponible", declaraciones.get(i).getBaseImponible());
+                bundle.putString("impuesto", declaraciones.get(i).getImpuesto());
+                bundle.putString("fechaDeclaracion", declaraciones.get(i).getFechaDeclaracion());
+                bundle.putString("afectoDesde", declaraciones.get(i).getAfectoDesde());
+
+
                 Intent iconIntent = new Intent(view.getContext(), DetalleDeclaracionActivity.class);
                 iconIntent.putExtras(bundle);
                 view.getContext().startActivity(iconIntent);

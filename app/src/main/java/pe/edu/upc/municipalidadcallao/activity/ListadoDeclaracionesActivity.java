@@ -6,14 +6,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.adapter.DeclaracionAdapter;
-import pe.edu.upc.municipalidadcallao.pojos.Declaracion;
-import pe.edu.upc.municipalidadcallao.service.DeclaracionService;
+import pe.edu.upc.municipalidadcallao.model.MunicipalidadDbHelper;
+import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Declaracion;
 
 public class ListadoDeclaracionesActivity extends AppCompatActivity {
+
+    List<Declaracion> declaraciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,19 +25,28 @@ public class ListadoDeclaracionesActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        List<Declaracion> declaraciones;
         RecyclerView.LayoutManager peopleLayoutManager;
         RecyclerView peopleRecyclerView;
         DeclaracionAdapter peopleAdapter;
 
-        DeclaracionService service = new DeclaracionService(this);
-        declaraciones = service.getDeclaraciones();
-        peopleLayoutManager = new LinearLayoutManager(this);
-        peopleAdapter = new DeclaracionAdapter();
-        peopleAdapter.setDeclaraciones(declaraciones);
+        declaraciones = new ArrayList<>();
+
+        FillDeclaraciones();
+
         peopleRecyclerView = (RecyclerView) findViewById(R.id.declaracionRecyclerView);
+        peopleRecyclerView.setHasFixedSize(true);
+
+        // Usar un administrador para LinearLayout
+        peopleLayoutManager = new LinearLayoutManager(ListadoDeclaracionesActivity.this);
         peopleRecyclerView.setLayoutManager(peopleLayoutManager);
+
+        peopleAdapter = new DeclaracionAdapter(declaraciones);
         peopleRecyclerView.setAdapter(peopleAdapter);
 
+    }
+
+    private void FillDeclaraciones(){
+        MunicipalidadDbHelper db = new MunicipalidadDbHelper(ListadoDeclaracionesActivity.this);
+        declaraciones = db.getLstDeclaracion();
     }
 }

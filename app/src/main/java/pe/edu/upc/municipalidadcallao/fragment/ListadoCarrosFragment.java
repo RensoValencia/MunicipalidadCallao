@@ -10,12 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.municipalidadcallao.adapter.CarroAdapter;
+import pe.edu.upc.municipalidadcallao.model.MunicipalidadDbHelper;
 import pe.edu.upc.municipalidadcallao.service.CarroService;
 import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.pojos.Carro;
+import pe.edu.upc.municipalidadcallao.serviciorestFull.Vehiculo;
 
 
 /**
@@ -35,6 +38,7 @@ public class ListadoCarrosFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    List<pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Vehiculo> vehiculos;
 
     private OnFragmentInteractionListener mListener;
 
@@ -76,18 +80,21 @@ public class ListadoCarrosFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_listado_carros,
                 container, false);
 
-        List<Carro> people;
-        RecyclerView.LayoutManager peopleLayoutManager;
+        vehiculos = new ArrayList<>();
         RecyclerView peopleRecyclerView;
+
+        FillVehiculos();
+
+        peopleRecyclerView = (RecyclerView) rootView.findViewById(R.id.peopleRecyclerView);
+        peopleRecyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager peopleLayoutManager;
         CarroAdapter peopleAdapter;
 
-        CarroService service = new CarroService(getContext());
-        people = service.getCarros();
+        // Usar un administrador para LinearLayout
         peopleLayoutManager = new LinearLayoutManager(getContext());
-        peopleAdapter = new CarroAdapter();
-        peopleAdapter.setPeople(people);
-        peopleRecyclerView = (RecyclerView) rootView.findViewById(R.id.peopleRecyclerView);
         peopleRecyclerView.setLayoutManager(peopleLayoutManager);
+
+        peopleAdapter = new CarroAdapter(vehiculos);
         peopleRecyclerView.setAdapter(peopleAdapter);
 
         // Inflate the layout for this fragment
@@ -116,6 +123,11 @@ public class ListadoCarrosFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    private void FillVehiculos(){
+        MunicipalidadDbHelper db = new MunicipalidadDbHelper(getContext());
+        vehiculos = db.getLstVehiculo();
     }
 
     /**

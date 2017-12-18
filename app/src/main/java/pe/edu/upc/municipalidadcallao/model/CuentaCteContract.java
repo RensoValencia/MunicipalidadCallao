@@ -22,6 +22,7 @@ public class CuentaCteContract {
         public static final String INDICADOR="INDICADOR";
         public static final String RECIBO="RECIBO";
         public static final String FECHA_PAGO="FECHA_PAGO";
+        public static final String FECHA_VENCIMIENTO="FECHA_VENCIMIENTO";
 
     }
 }

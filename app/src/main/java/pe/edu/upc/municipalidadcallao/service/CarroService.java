@@ -8,6 +8,7 @@ import java.util.List;
 
 import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.pojos.Carro;
+import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Vehiculo;
 
 /**
  * Created by RENSO on 12/11/2017.
@@ -15,15 +16,15 @@ import pe.edu.upc.municipalidadcallao.pojos.Carro;
 
 public class CarroService {
 
-    private List<Carro> carros;
-    public List<Carro> getCarros() {
+    private List<Vehiculo> carros;
+    public List<Vehiculo> getCarros() {
         return carros;
     }
 
     public CarroService(Context context) {
         Resources res = context.getResources();
         carros = new ArrayList<>();
-        carros.add(new Carro(res.getString(R.string.placa1),
+        /*carros.add(new Carro(res.getString(R.string.placa1),
                 res.getString(R.string.marca1),
                 res.getString(R.string.modelo1),
                 "A1", "2016", "02/11/2014", "Bellavista",
@@ -63,6 +64,6 @@ public class CarroService {
                 res.getString(R.string.marca7),
                 res.getString(R.string.modelo7),
                 "A3", "2014", "02/05/2011", "Pueblo libre",
-                R.drawable.carro07));
+                R.drawable.carro07));*/
     }
 }

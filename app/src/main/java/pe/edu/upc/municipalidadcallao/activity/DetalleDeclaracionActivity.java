@@ -46,17 +46,17 @@ public class DetalleDeclaracionActivity extends AppCompatActivity {
         btnListadoDeclaracion = (Button) findViewById(R.id.btnListadoDeclaracion);
 
         DeclaracionService service = new DeclaracionService(this);
-        Declaracion declaracion =
-                service.getDeclaraciones().get(getIntent().getExtras().getInt("currentPosition"));
-        carroTextView.setText(declaracion.getCarro());
-        usuarioTextView.setText(declaracion.getUsuario());
-        porcentajeTextView.setText(declaracion.getPorcentaje());
-        baseImponible.setText(declaracion.getBaseImponible());
-        impuesto.setText(declaracion.getImpuesto());
-        fechaDeclaracion.setText(declaracion.getFechaDeclaracion());
-        afectoDesde.setText(declaracion.getAfectoDesde());
+        /*Declaracion declaracion =
+                service.getDeclaraciones().get(getIntent().getExtras().getInt("currentPosition"));*/
+        carroTextView.setText(getIntent().getExtras().getString("carro"));
+        usuarioTextView.setText(getIntent().getExtras().getString("usuario"));
+        porcentajeTextView.setText(getIntent().getExtras().getString("porcentaje"));
+        baseImponible.setText(getIntent().getExtras().getString("baseImponible"));
+        impuesto.setText(getIntent().getExtras().getString("impuesto"));
+        fechaDeclaracion.setText(getIntent().getExtras().getString("fechaDeclaracion"));
+        afectoDesde.setText(getIntent().getExtras().getString("afectoDesde"));
 
-        pictureImageView.setImageResource(declaracion.getImagen());
+        //pictureImageView.setImageResource(declaracion.getImagen());
 
     }
 }

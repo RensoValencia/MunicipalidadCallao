@@ -47,6 +47,7 @@ public class MunicipalidadDbHelper extends SQLiteOpenHelper {
                 + CuentaCteContract.CuentaCteEntry.INDICADOR + " TEXT,"
                 + CuentaCteContract.CuentaCteEntry.RECIBO + " TEXT,"
                 + CuentaCteContract.CuentaCteEntry.FECHA_PAGO + " TEXT,"
+                + CuentaCteContract.CuentaCteEntry.FECHA_VENCIMIENTO + " TEXT,"
                 + "UNIQUE (" + CuentaCteContract.CuentaCteEntry.ID + "))");
 
 
@@ -100,8 +101,8 @@ public class MunicipalidadDbHelper extends SQLiteOpenHelper {
 
     public void doLoadInitialData(SQLiteDatabase db) {
         /* Insertar Cuenta Corriente */
-        lstCuentaCte.add(new CuentaCte("1", "2016", "2016", "2017", "17", "0.5", "1", "2", "24/12/2017"));
-        lstCuentaCte.add(new CuentaCte("1", "2016", "2017", "2018", "18", "1", "3", "5", "24/12/2015"));
+        lstCuentaCte.add(new CuentaCte("1", "2016", "2016", "2017", "17", "0.5", "1", "2", "24/12/2017", "16/12/2017"));
+        lstCuentaCte.add(new CuentaCte("1", "2016", "2017", "2018", "18", "1", "3", "5", "24/12/2015", "16/12/2015"));
 
         for(int i = 0; i < lstCuentaCte.size(); i++) {
             long insert = db.insert(CuentaCteContract.CuentaCteEntry.TABLE_NAME, null,
@@ -243,7 +244,8 @@ public class MunicipalidadDbHelper extends SQLiteOpenHelper {
             String indicador = c.getString(c.getColumnIndex(CuentaCteContract.CuentaCteEntry.INDICADOR));
             String recibo = c.getString(c.getColumnIndex(CuentaCteContract.CuentaCteEntry.RECIBO));
             String fechaPago = c.getString(c.getColumnIndex(CuentaCteContract.CuentaCteEntry.FECHA_PAGO));
-            CuentaCte item = new CuentaCte(idDeclaracion, anio, periodo,insoluto, emision, interes, indicador, recibo, fechaPago);
+            String fechaVen = c.getString(c.getColumnIndex(CuentaCteContract.CuentaCteEntry.FECHA_VENCIMIENTO));
+            CuentaCte item = new CuentaCte(idDeclaracion, anio, periodo,insoluto, emision, interes, indicador, recibo, fechaPago, fechaVen);
             list.add(item);
         }
         db.close();
@@ -280,7 +282,8 @@ public class MunicipalidadDbHelper extends SQLiteOpenHelper {
             String indicador = c.getString(c.getColumnIndex(CuentaCteContract.CuentaCteEntry.INDICADOR));
             String recibo = c.getString(c.getColumnIndex(CuentaCteContract.CuentaCteEntry.RECIBO));
             String fechaPago = c.getString(c.getColumnIndex(CuentaCteContract.CuentaCteEntry.FECHA_PAGO));
-            cuentaCte = new CuentaCte(idDeclaracion, anio, periodo, insoluto, emision, interes, indicador, recibo, fechaPago);
+            String fechaVen = c.getString(c.getColumnIndex(CuentaCteContract.CuentaCteEntry.FECHA_VENCIMIENTO));
+            cuentaCte = new CuentaCte(idDeclaracion, anio, periodo, insoluto, emision, interes, indicador, recibo, fechaPago, fechaVen);
         }
         db.close();
         return cuentaCte;

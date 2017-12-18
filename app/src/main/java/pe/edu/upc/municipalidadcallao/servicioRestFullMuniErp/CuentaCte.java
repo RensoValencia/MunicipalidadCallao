@@ -22,11 +22,12 @@ public class CuentaCte {
     private String indicador;
     private String recibo;
     private String fechaPago;
+    private String fechaVencimiento;
 
     public CuentaCte() {
     }
 
-    public CuentaCte(String idDeclaracion, String anio, String periodo, String insoluto, String emision, String interes, String indicador, String recibo, String fechaPago) {
+    public CuentaCte(String idDeclaracion, String anio, String periodo, String insoluto, String emision, String interes, String indicador, String recibo, String fechaPago, String fechaVencimiento) {
         this.id = UUID.randomUUID().toString();
         this.idDeclaracion = idDeclaracion;
         this.anio = anio;
@@ -37,6 +38,7 @@ public class CuentaCte {
         this.indicador = indicador;
         this.recibo = recibo;
         this.fechaPago = fechaPago;
+        this.fechaVencimiento = fechaVencimiento;
     }
 
     public String getId() {
