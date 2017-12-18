@@ -23,29 +23,29 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 
-import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Usuario;
+import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Declaracion;
 
 /**
  * Created by RENSO on 25/11/2017.
  */
 
-public class GetHttpUsuario extends AsyncTask<String, Void, String> {
+public class GetHttpCuentaCta extends AsyncTask<String, Void, String> {
 
-    private Usuario httpObject;
+    private Declaracion httpObject;
     private RecyclerView httpRecycler;
     private RecyclerView.Adapter httpAdapter;
 
     private Context httpContext;
     ProgressDialog progressDialog;
 
-    public GetHttpUsuario(Usuario httpObject, RecyclerView httpRecycler, RecyclerView.Adapter httpAdapter, Context httpContext) {
+    public GetHttpCuentaCta(Declaracion httpObject, RecyclerView httpRecycler, RecyclerView.Adapter httpAdapter, Context httpContext) {
         this.httpObject = httpObject;
         this.httpRecycler = httpRecycler;
         this.httpAdapter = httpAdapter;
         this.httpContext = httpContext;
     }
 
-    public GetHttpUsuario(Context httpContext) {
+    public GetHttpCuentaCta(Context httpContext) {
         this.httpContext = httpContext;
     }
 
@@ -61,7 +61,6 @@ public class GetHttpUsuario extends AsyncTask<String, Void, String> {
 
             DataOutputStream printout;
             DataInputStream input;
-            System.out.println("cadena: " + cadena);
             url = new URL(cadena);
             urlConn = (HttpURLConnection) url.openConnection();
             urlConn.setDoInput(true);
@@ -158,7 +157,7 @@ public class GetHttpUsuario extends AsyncTask<String, Void, String> {
             String correo = jsonObject.getString("correoElectronico");
             String clave = jsonObject.getString("clave");
 
-            this.httpObject = new Usuario(nombres, apellidoPaterno, apellidoMaterno, distrito, direccion, distrito, correo, clave);
+            //this.httpObject = new Declaracion(nombres, apellidoPaterno, apellidoMaterno, distrito, direccion, distrito, correo, clave);
             //httpRecycler.setAdapter(this.httpAdapter);
 
         } catch(JSONException | UnsupportedEncodingException e) {

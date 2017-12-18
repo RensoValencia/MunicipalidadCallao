@@ -8,10 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import pe.edu.upc.municipalidadcallao.activity.LoginActivity;
 import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.CuentaCte;
 import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Declaracion;
 import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Usuario;
 import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Vehiculo;
+import pe.edu.upc.municipalidadcallao.serviciorestFull.GetHttpUsuario;
 
 /**
  * Created by RENSO on 12/12/2017.
@@ -458,4 +460,13 @@ public class MunicipalidadDbHelper extends SQLiteOpenHelper {
         muni.updateCuentaCte("1", cc);
 
      */
+
+        /* Grabar en la nube */
+/*
+    String IP = "http://192.168.89.2:8080/MunicipalidadERP/webresources/";
+    String INSERT = IP + "consultarUsuario";
+    GetHttpUsuario reniec = new GetHttpUsuario(LoginActivity.this);
+        reniec.execute(INSERT, "99998888", "gggg", "dddd", "eeee", "wwwww", "22222", "dsdsfdssd", "159159", "otro data");
+        */
+
 }
