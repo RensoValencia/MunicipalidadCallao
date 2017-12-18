@@ -255,7 +255,7 @@ public class DeclaracionFragment extends Fragment implements View.OnClickListene
                                                                         }
                                                                         muni.saveCuentaCte(new pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.CuentaCte(
                                                                                 String.valueOf(iddeclaj), String.valueOf(j),xperiod,String.valueOf(xinsolu),
-                                                                                String.valueOf(xemisio),"0","0","",""));
+                                                                                String.valueOf(xemisio),"0","0","","",xfecven));
                                                                     }
 
 

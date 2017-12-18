@@ -12,6 +12,7 @@ import android.widget.TextView;
 import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.pojos.Carro;
 import pe.edu.upc.municipalidadcallao.service.CarroService;
+import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Vehiculo;
 
 public class DetalleCarroActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -41,13 +42,14 @@ public class DetalleCarroActivity extends AppCompatActivity implements View.OnCl
         btnRegresar = (Button) findViewById(R.id.btnRegresar);
 
         CarroService service = new CarroService(this);
-        Carro carro =
-                service.getCarros().get(getIntent().getExtras().getInt("currentPosition"));
-        placaTextView.setText(carro.getPlaca());
-        marcaTextView.setText(carro.getMarca());
-        modeloTextView.setText(carro.getModelo());
-        categoriaTextView.setText(carro.getCategoria());
-        pictureImageView.setImageResource(carro.getImagen());
+        /*Vehiculo carro =
+                service.getCarros().get(getIntent().getExtras().getInt("currentPosition"));*/
+        placaTextView.setText(getIntent().getExtras().getString("placa"));
+        marcaTextView.setText(getIntent().getExtras().getString("marca"));
+        modeloTextView.setText(getIntent().getExtras().getString("modelo"));
+        categoriaTextView.setText(getIntent().getExtras().getString("categoria"));
+        //categoriaTextView.setText(getIntent().getExtras().getString("categoria"));
+        //pictureImageView.setImageResource(carro.getImagen());
 
         btnListadoDeclaracion.setOnClickListener(this);
         btnEstadoCuenta.setOnClickListener(this);

@@ -22,9 +22,11 @@ import java.util.List;
 import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.model.MunicipalidadDbHelper;
 import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.CuentaCte;
+import pe.edu.upc.municipalidadcallao.serviciorestFull.GetHttpReniec;
 import pe.edu.upc.municipalidadcallao.utils.CustomDialog;
 import pe.edu.upc.municipalidadcallao.utils.CustomInternet;
 import pe.edu.upc.municipalidadcallao.utils.ToaskCustom;
+import pe.edu.upc.municipalidadcallao.utils.UtilDate;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -62,7 +64,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void validarAcceso() {
-/*
+
+        String IP = "http://192.168.89.2:8080/ReniecNuevo/webresources/";
+        String INSERT = IP + "consultarReniec";
+        GetHttpReniec reniec = new GetHttpReniec(LoginActivity.this);
+        reniec.execute(INSERT, "37373737", "celular", "grande", "cuatro", "cinco", "seis");
+
         if(txtUsuario.getText().toString().isEmpty()) {
             CustomDialog.ShowCustomAlert("Ingrese su usuario ", this);
             txtUsuario.requestFocus();
@@ -78,22 +85,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String email = txtUsuario.getText().toString();
         String password = txtClave.getText().toString();
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "Se ha autenticado correctamente");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Ha Ocurrido un error en el servicio de autenticado.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
+        if(CustomInternet.isNetworkAvaliable(LoginActivity.this)) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "Se ha autenticado correctamente");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI(user);
+                            } else {
+                                Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                Toast.makeText(LoginActivity.this, "Ha Ocurrido un error en el servicio de autenticado.",
+                                        Toast.LENGTH_SHORT).show();
+                                updateUI(null);
+                            }
                     }
-                });*/ Intent iconIntent = new Intent(this, MainActivity.class);
+                });
+        } else {
+            ToaskCustom.msg(LoginActivity.this, "Entonces se loguea desde el proyect inicial");
+        }
+
+        Intent iconIntent = new Intent(this, MainActivity.class);
         this.startActivity(iconIntent);
     }
 
