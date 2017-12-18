@@ -23,6 +23,7 @@ import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.model.MunicipalidadDbHelper;
 import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.CuentaCte;
 import pe.edu.upc.municipalidadcallao.serviciorestFull.GetHttpReniec;
+import pe.edu.upc.municipalidadcallao.serviciorestFull.GetHttpUsuario;
 import pe.edu.upc.municipalidadcallao.utils.CustomDialog;
 import pe.edu.upc.municipalidadcallao.utils.CustomInternet;
 import pe.edu.upc.municipalidadcallao.utils.ToaskCustom;
@@ -65,13 +66,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void validarAcceso() {
 
-        String IP = "http://192.168.89.2:8080/ReniecNuevo/webresources/";
-        String INSERT = IP + "consultarReniec";
-        GetHttpReniec reniec = new GetHttpReniec(LoginActivity.this);
-        reniec.execute(INSERT, "37373737", "celular", "grande", "cuatro", "cinco", "seis");
-
+        /*
+        String IP = "http://192.168.89.2:8080/MunicipalidadERP/webresources/";
+        String INSERT = IP + "consultarUsuario";
+        GetHttpUsuario reniec = new GetHttpUsuario(LoginActivity.this);
+        reniec.execute(INSERT, "99998888", "gggg", "dddd", "eeee", "wwwww", "22222", "dsdsfdssd", "159159");
+*/
         if(txtUsuario.getText().toString().isEmpty()) {
-            CustomDialog.ShowCustomAlert("Ingrese su usuario ", this);
+            CustomDialog.ShowCustomAlert("Ingrese su usuario " + UtilDate.getTotalFecha(), this);
             txtUsuario.requestFocus();
             return;
         }
