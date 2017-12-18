@@ -41,7 +41,7 @@ public class MunicipalidadDbHelper extends SQLiteOpenHelper {
                 + CuentaCteContract.CuentaCteEntry.ID_DECLARACION + " TEXT NOT NULL,"
                 + CuentaCteContract.CuentaCteEntry.ANIO + " TEXT NOT NULL,"
                 + CuentaCteContract.CuentaCteEntry.PERIODO + " TEXT NOT NULL,"
-                + CuentaCteContract.CuentaCteEntry.INSOLUTO + " TEXT NOT NULL,"
+                + CuentaCteContract.CuentaCteEntry.INSOLUTO + " REAL NOT NULL,"
                 + CuentaCteContract.CuentaCteEntry.EMISION + " TEXT,"
                 + CuentaCteContract.CuentaCteEntry.INTERES + " TEXT,"
                 + CuentaCteContract.CuentaCteEntry.INDICADOR + " TEXT,"
@@ -56,7 +56,7 @@ public class MunicipalidadDbHelper extends SQLiteOpenHelper {
                 + DeclaracionContract.DeclaracionEntry.ID_VEHICULO + " TEXT NOT NULL,"
                 + DeclaracionContract.DeclaracionEntry.ID_USUARIO + " TEXT NOT NULL,"
                 + DeclaracionContract.DeclaracionEntry.PORCENTAJE + " integer NOT NULL,"
-                + DeclaracionContract.DeclaracionEntry.BASE_IMPONIBLE + " TEXT NOT NULL,"
+                + DeclaracionContract.DeclaracionEntry.BASE_IMPONIBLE + " REAL NOT NULL,"
                 + DeclaracionContract.DeclaracionEntry.IMPUESTO + " TEXT,"
                 + DeclaracionContract.DeclaracionEntry.FECHA_DECLARACION + " TEXT,"
                 + DeclaracionContract.DeclaracionEntry.AFECTO_DESDE + " TEXT,"
@@ -284,6 +284,41 @@ public class MunicipalidadDbHelper extends SQLiteOpenHelper {
         }
         db.close();
         return cuentaCte;
+    }
+
+    public Usuario getUsuario(String dni) {
+
+        String selection =  UsuarioContract.UsuarioEntry.DNI + "=?";
+        String[] selectionArgs = new String[1];
+        selectionArgs[0] = dni;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query(UsuarioContract.UsuarioEntry.TABLE_NAME, //Nombre de la tabla
+                null, //Lista de columnas a consultar
+                selection, //Columnas para la clausula where
+                selectionArgs, //Valores a comparar con las columnas del where
+                null, //Agrupar con un Group by
+                null, //Condicion having para group by
+                UsuarioContract.UsuarioEntry.ID
+        );
+
+        Usuario usuario = null;
+
+        if(c != null && c.moveToFirst()) {
+
+            c.moveToFirst();
+            String id = c.getString(c.getColumnIndex(UsuarioContract.UsuarioEntry.ID));
+            String xdni = c.getString(c.getColumnIndex(UsuarioContract.UsuarioEntry.DNI));
+            String nombre = c.getString(c.getColumnIndex(UsuarioContract.UsuarioEntry.NOMBRE));
+            String apaterno = c.getString(c.getColumnIndex(UsuarioContract.UsuarioEntry.APELLIDO_PATERNO));
+            String amaterno = c.getString(c.getColumnIndex(UsuarioContract.UsuarioEntry.APELLIDO_MATERNO));
+            String direccion = c.getString(c.getColumnIndex(UsuarioContract.UsuarioEntry.DIRECCION));
+            String distrito = c.getString(c.getColumnIndex(UsuarioContract.UsuarioEntry.DISTRITO));
+            String correo = c.getString(c.getColumnIndex(UsuarioContract.UsuarioEntry.CORREO_ELECTRONICO));
+            String clave = c.getString(c.getColumnIndex(UsuarioContract.UsuarioEntry.CLAVE));
+            usuario = new Usuario(xdni,nombre,apaterno,amaterno,direccion,distrito,correo,clave);
+        }
+        db.close();
+        return usuario;
     }
 
     public long saveCuentaCte(CuentaCte cuentaCte) {

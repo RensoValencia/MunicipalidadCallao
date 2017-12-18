@@ -211,7 +211,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         final Usuario user = new Usuario(txtDni.getText().toString(), txtNombre.getText().toString(), txtApeMaterno.getText().toString(),
                 txtApeMaterno.getText().toString(), txtDireccion.getText().toString(), distrito.getSelectedItem().toString(),
                 txtCorreo.getText().toString(), txtClave.getText().toString());
-
+                muni.saveUsuario(user);
         /*new Usuario("47911488", "Renso", "Valencia", "Ventura",
                 "Av la paz 1500", "CALLAO", "rvalencia@gmail.com", "123456");*/
 

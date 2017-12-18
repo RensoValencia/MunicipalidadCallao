@@ -21,6 +21,8 @@ public class Vehiculo {
     private String fechaRegistroPublico;
     private String provincia;
 
+
+
     public Vehiculo(String placa, String marca, String modelo, String categoria, String anioFabricacion, String fechaRegistroPublico, String provincia) {
         this.id = UUID.randomUUID().toString();
         this.placa = placa;

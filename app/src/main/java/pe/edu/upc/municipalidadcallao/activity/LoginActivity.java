@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void validarAcceso() {
-
+/*
         if(txtUsuario.getText().toString().isEmpty()) {
             CustomDialog.ShowCustomAlert("Ingrese su usuario ", this);
             txtUsuario.requestFocus();
@@ -93,7 +93,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             updateUI(null);
                         }
                     }
-                });
+                });*/ Intent iconIntent = new Intent(this, MainActivity.class);
+        this.startActivity(iconIntent);
     }
 
     private void updateUI(FirebaseUser user) {
