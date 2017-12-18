@@ -23,6 +23,8 @@ import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.model.MunicipalidadDbHelper;
 import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.CuentaCte;
 import pe.edu.upc.municipalidadcallao.utils.CustomDialog;
+import pe.edu.upc.municipalidadcallao.utils.CustomInternet;
+import pe.edu.upc.municipalidadcallao.utils.ToaskCustom;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -41,6 +43,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+
+        MunicipalidadDbHelper db = new MunicipalidadDbHelper(LoginActivity.this);
+        db.getLstCuentaCte();
+        db.getLstDeclaracion();
+        db.getLstUsuario();
+        db.getLstVehiculo();
 
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
         txtClave = (EditText) findViewById(R.id.txtClave);

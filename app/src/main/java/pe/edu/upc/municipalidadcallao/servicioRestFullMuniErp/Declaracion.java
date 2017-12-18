@@ -1,6 +1,11 @@
 package pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp;
 
+import android.content.ContentValues;
+
 import java.util.UUID;
+
+import pe.edu.upc.municipalidadcallao.model.CuentaCteContract;
+import pe.edu.upc.municipalidadcallao.model.DeclaracionContract;
 
 /**
  * Created by RENSO on 06/12/2017.
@@ -150,5 +155,27 @@ public class Declaracion {
 
     public void setValorMef(String valorMef) {
         this.valorMef = valorMef;
+    }
+
+    public ContentValues toContentValues() {
+        ContentValues values = new ContentValues();
+        // Pares clave-valor
+        values.put(DeclaracionContract.DeclaracionEntry.ID, this.getId());
+        values.put(DeclaracionContract.DeclaracionEntry.ID_VEHICULO, this.getIdVehiculo());
+        values.put(DeclaracionContract.DeclaracionEntry.ID_USUARIO, this.getIdUsuario());
+        values.put(DeclaracionContract.DeclaracionEntry.PORCENTAJE, this.getPorcentaje());
+        values.put(DeclaracionContract.DeclaracionEntry.BASE_IMPONIBLE, this.getBaseImponible());
+        values.put(DeclaracionContract.DeclaracionEntry.IMPUESTO, this.getImpuesto());
+        values.put(DeclaracionContract.DeclaracionEntry.FECHA_DECLARACION, this.getFechaDeclaracion());
+        values.put(DeclaracionContract.DeclaracionEntry.AFECTO_DESDE, this.getAfectoDesde());
+        values.put(DeclaracionContract.DeclaracionEntry.ANIO_ADQUISICION, this.getAnioAdquisicion());
+
+        values.put(DeclaracionContract.DeclaracionEntry.MONEDA, this.getMoneda());
+        values.put(DeclaracionContract.DeclaracionEntry.VALOR_ADQUISICION, this.getValorAdquisicion());
+        values.put(DeclaracionContract.DeclaracionEntry.TIPO_CAMBIO, this.getTipoCambio());
+        values.put(DeclaracionContract.DeclaracionEntry.VALOR_REAL_ADQUISICION, this.getValorRealAdquisicion());
+        values.put(DeclaracionContract.DeclaracionEntry.VALOR_MEF, this.getValorMef());
+
+        return values;
     }
 }

@@ -12,8 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
@@ -30,14 +30,19 @@ import com.google.gson.GsonBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import pe.edu.upc.municipalidadcallao.R;
 import pe.edu.upc.municipalidadcallao.devazt.networking.HttpClient;
 import pe.edu.upc.municipalidadcallao.devazt.networking.OnHttpRequestComplete;
 import pe.edu.upc.municipalidadcallao.devazt.networking.Response;
 import pe.edu.upc.municipalidadcallao.model.MunicipalidadDbHelper;
+import pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp.Usuario;
+import pe.edu.upc.municipalidadcallao.serviciorestFull.Pago;
 import pe.edu.upc.municipalidadcallao.serviciorestFull.Persona;
 import pe.edu.upc.municipalidadcallao.utils.CustomDialog;
-import pe.edu.upc.municipalidadcallao.utils.ToaskCustom;
+import pe.edu.upc.municipalidadcallao.utils.CustomInternet;
 
 public class RegistroActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -54,18 +59,23 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     Spinner distrito;
     Button btnSalir;
     Button btnRegistrarse;
+    MunicipalidadDbHelper muni;
+    final String URL = "http://192.168.89.2:8080/ReniecNuevo/webresources/consultarReniec/";
 
     private FirebaseAuth mAuth;
     String TAG = "Logs";
     Gson gson = new GsonBuilder().create();
+    RequestQueue que;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        final RequestQueue que = Volley.newRequestQueue(this);
-        final String URL = "http://192.168.200.1:8080/ReniecNuevo/webresources/consultarReniec/";
+        que = Volley.newRequestQueue(RegistroActivity.this);
+        muni = new MunicipalidadDbHelper(RegistroActivity.this);
+
+        //final String URL = "http:/192.168.89.2:8080/ReniecNuevo/webresources/consultarReniec/";
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -97,6 +107,8 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                                         txtApePaterno.setText(persona.getApellidoPaterno());
                                         txtApeMaterno.setText(persona.getApellidoMaterno());
 
+                                        //ToaskCustom.msg(RegistroActivity.this, "distrito: " + distrito.getSelectedItem().toString());
+
                                         if(persona.getDistrito().equals("CALLAO")) {
                                             distrito.setSelection(0);
                                         } else if(persona.getDistrito().equals("SAN MIGUEL")) {
@@ -110,14 +122,12 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
                                     } catch(JSONException ex) {
                                         ex.printStackTrace();
-                                        ToaskCustom.msg(RegistroActivity.this,
-                                                "Hubo un error al obtener el JSON");
                                     }
                                 }
                             }, new com.android.volley.Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            ToaskCustom.msg(RegistroActivity.this, "Hubo un error al obtener los datos");
+                            System.out.println("error: " + error);
                         }
                     });
                     que.add(stringRequest);
@@ -145,49 +155,48 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     private void registrarUsuario(View v) {
 
         if(txtDni.getText().toString().isEmpty()) {
-            System.out.println("Este es un mensaje");
-            CustomDialog.ShowCustomAlert(getString(R.string.app_msg_dni_vacio) + " Renso", this);
+            //CustomDialog.ShowCustomAlert(getString(R.string.app_msg_dni_vacio), this);
             txtDni.requestFocus();
             return;
         }
 
         if(txtNombre.getText().toString().isEmpty()) {
-            CustomDialog.ShowCustomAlert("Ingrese su Nombre", this);
+            //CustomDialog.ShowCustomAlert("Ingrese su Nombre", this);
             txtNombre.requestFocus();
             return;
         }
 
         if(txtApePaterno.getText().toString().isEmpty()) {
-            CustomDialog.ShowCustomAlert("Ingrese su Apellido paterno", this);
+            //CustomDialog.ShowCustomAlert("Ingrese su Apellido paterno", this);
             txtApePaterno.requestFocus();
             return;
         }
 
         if(txtApeMaterno.getText().toString().isEmpty()) {
-            CustomDialog.ShowCustomAlert("Ingrese su Apellido materno", this);
+            //CustomDialog.ShowCustomAlert("Ingrese su Apellido materno", this);
             txtApeMaterno.requestFocus();
             return;
         }
 
         if(txtDireccion.getText().toString().isEmpty()) {
-            CustomDialog.ShowCustomAlert("Ingrese su Direccion", this);
+            //CustomDialog.ShowCustomAlert("Ingrese su Direccion", this);
             txtDireccion.requestFocus();
             return;
         }
 
         if(txtCorreo.getText().toString().isEmpty()) {
-            CustomDialog.ShowCustomAlert("Ingrese el correo", this);
+            //CustomDialog.ShowCustomAlert("Ingrese el correo", this);
             txtCorreo.requestFocus();
             return;
         }
 
         if(txtClave.getText().toString().isEmpty()) {
-            CustomDialog.ShowCustomAlert("Ingrese la clave", this);
+            //CustomDialog.ShowCustomAlert("Ingrese la clave", this);
             txtClave.requestFocus();
             return;
         }
 
-        CustomDialog.ShowCustomAlert("DNI: " + txtDni.getText().toString() + "\n"+
+        /*CustomDialog.ShowCustomAlert("DNI: " + txtDni.getText().toString() + "\n"+
                                                "Nombres: " + txtNombre.getText().toString() + "\n" +
                                                 "Apellido paterno" + txtApePaterno.getText().toString() + "\n" +
                                                 "Apellido materno: " + txtApeMaterno.getText().toString() + "\n" +
@@ -195,30 +204,102 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                                                 "Direccion" + txtDireccion.getText().toString() + "\n" +
                                                 "Email: " + txtCorreo.getText().toString() + "\n" +
                                                 "Telefono: " + txtTelefono.getText().toString() + "\n" +
-                                                "Clave: " + txtClave.getText().toString(), RegistroActivity.this);
+                                                "Clave: " + txtClave.getText().toString(), RegistroActivity.this);*/
+
+        //String dni, String nombre, String apellidoPaterno, String apellidoMaterno, String direccion,
+        // String distrito, String correoElectronico, String clave
+        final Usuario user = new Usuario(txtDni.getText().toString(), txtNombre.getText().toString(), txtApeMaterno.getText().toString(),
+                txtApeMaterno.getText().toString(), txtDireccion.getText().toString(), distrito.getSelectedItem().toString(),
+                txtCorreo.getText().toString(), txtClave.getText().toString());
+
+        /*new Usuario("47911488", "Renso", "Valencia", "Ventura",
+                "Av la paz 1500", "CALLAO", "rvalencia@gmail.com", "123456");*/
+
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+                new com.android.volley.Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        //CustomDialog.ShowCustomAlert("Se ha grabado correctamente en la nube", RegistroActivity.this);
+                    }
+                },
+                new com.android.volley.Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        System.out.println("error: " + error + " - " + error.getMessage());
+                        //CustomDialog.ShowCustomAlert("Hubo un problema al grabar en la nube: " + error + " - " + error.getMessage(), RegistroActivity.this);
+                    }
+                }
+        ) /*{
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }*/
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                //headers.put("Content-Type","application/x-www-form-urlencoded");
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+            @Override
+            protected Map<String, String> getParams()
+            {
+                /*
+                apellidoMaterno: "VARGAS 1",
+apellidoPaterno: "TELLO 1",
+direccion: "AV LA PERLA 1",
+distrito: "LA PERLA 1",
+dni: "47911488",
+id: 50,
+nombres: "Chrisitan 1",*/
+
+                Map<String, String>  params = new HashMap<String, String>();
+                //CustomDialog.ShowCustomAlert("" + user, RegistroActivity.this);
+                params.put("apellidoMaterno", user.getApellidoMaterno());
+                params.put("apellidoPaterno", user.getApellidoPaterno());
+                params.put("direccion", user.getDireccion());
+                params.put("distrito", user.getDistrito());
+                params.put("dni", user.getDni());
+                params.put("nombres", user.getNombre());
+                return params;
+            }
+        };
+
+        RequestQueue que2 = Volley.newRequestQueue(RegistroActivity.this);
+        que2.add(stringRequest);
 
         /*
-        String email = txtCorreo.getText().toString();
-        String password = txtClave.getText().toString();
+        if(CustomInternet.isNetworkAvaliable(RegistroActivity.this)) {
+            String email = txtCorreo.getText().toString();
+            String password = txtClave.getText().toString();
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(RegistroActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "createUserWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI(user);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(RegistroActivity.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                                updateUI(null);
+                            }
                         }
-                    }
-                });*/
+                    });
+        }*/
     }
 
     private void updateUI(FirebaseUser user) {

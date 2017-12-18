@@ -1,6 +1,12 @@
 package pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp;
 
+import android.content.ContentValues;
+
 import java.util.UUID;
+
+import pe.edu.upc.municipalidadcallao.model.UsuarioContract;
+import pe.edu.upc.municipalidadcallao.model.VehiculoContract;
+
 /**
  * Created by RENSO on 06/12/2017.
  */
@@ -88,5 +94,19 @@ public class Vehiculo {
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
+    }
+
+    public ContentValues toContentValues() {
+        ContentValues values = new ContentValues();
+        // Pares clave-valor
+        values.put(VehiculoContract.VehiculoEntry.ID, this.getId());
+        values.put(VehiculoContract.VehiculoEntry.PLACA, this.getPlaca());
+        values.put(VehiculoContract.VehiculoEntry.MARCA, this.getMarca());
+        values.put(VehiculoContract.VehiculoEntry.MODELO, this.getModelo());
+        values.put(VehiculoContract.VehiculoEntry.CATEGORIA, this.getCategoria());
+        values.put(VehiculoContract.VehiculoEntry.ANIO_FABRICACION, this.getAnioFabricacion());
+        values.put(VehiculoContract.VehiculoEntry.FECHA_REGISTRO_PUBLICO, this.getFechaRegistroPublico());
+        values.put(VehiculoContract.VehiculoEntry.PROVINCIA, this.getProvincia());
+        return values;
     }
 }

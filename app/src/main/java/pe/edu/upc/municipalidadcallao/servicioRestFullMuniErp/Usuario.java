@@ -1,6 +1,11 @@
 package pe.edu.upc.municipalidadcallao.servicioRestFullMuniErp;
 
+import android.content.ContentValues;
+
 import java.util.UUID;
+
+import pe.edu.upc.municipalidadcallao.model.UsuarioContract;
+
 /**
  * Created by RENSO on 06/12/2017.
  */
@@ -99,4 +104,35 @@ public class Usuario {
     public void setClave(String clave) {
         this.clave = clave;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id='" + id + '\'' +
+                ", dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellidoPaterno='" + apellidoPaterno + '\'' +
+                ", apellidoMaterno='" + apellidoMaterno + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", distrito='" + distrito + '\'' +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                ", clave='" + clave + '\'' +
+                '}';
+    }
+
+    public ContentValues toContentValues() {
+        ContentValues values = new ContentValues();
+        // Pares clave-valor
+        values.put(UsuarioContract.UsuarioEntry.ID, this.getId());
+        values.put(UsuarioContract.UsuarioEntry.DNI, this.getDni());
+        values.put(UsuarioContract.UsuarioEntry.NOMBRE, this.getNombre());
+        values.put(UsuarioContract.UsuarioEntry.APELLIDO_PATERNO, this.getApellidoPaterno());
+        values.put(UsuarioContract.UsuarioEntry.APELLIDO_MATERNO, this.getApellidoMaterno());
+        values.put(UsuarioContract.UsuarioEntry.DIRECCION, this.getDireccion());
+        values.put(UsuarioContract.UsuarioEntry.DISTRITO, this.getDistrito());
+        values.put(UsuarioContract.UsuarioEntry.CORREO_ELECTRONICO, this.getCorreoElectronico());
+        values.put(UsuarioContract.UsuarioEntry.CLAVE, this.getClave());
+        return values;
+    }
+
 }
